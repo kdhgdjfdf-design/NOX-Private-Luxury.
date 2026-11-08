@@ -36,11 +36,29 @@
 .home-nav-hint{color:#827d73;font-size:10px;text-align:center;margin:18px 0 4px}
 @media(max-width:600px){.concierge{padding:23px 18px}.editor-grid{grid-template-columns:1fr}.editor-wide{grid-column:auto}.concierge p{font-size:13px}}
 
+
+/* Daily Briefing entrance — keeps the existing home screen intact */
+#briefingScreen{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:28px 22px;background:radial-gradient(ellipse at 50% 0%,#302719 0,transparent 48%),#100f0d}
+.briefing-inner{width:min(100%,650px);margin:auto}
+.briefing-brand{display:flex;justify-content:space-between;align-items:center;padding:8px 2px 22px;border-bottom:1px solid #51402c}
+.briefing-wordmark{font:normal 30px Georgia,serif;letter-spacing:7px;color:#d2ae75;direction:ltr}
+.briefing-sub{font-size:9px;letter-spacing:2px;color:#9f8968;margin-top:4px}
+.briefing-copy{padding:clamp(48px,12vh,100px) 2px 42px}
+.briefing-date{font-size:10px;letter-spacing:1.5px;color:#b79a6b}
+.briefing-copy h1{font-size:clamp(29px,6vw,42px);font-weight:400;color:#f1e6d4;margin:16px 0 14px}
+.briefing-copy p{font-size:14px;line-height:2.15;color:#d6cbb9;margin:9px 0;white-space:pre-line}
+.briefing-enter{width:100%;margin-top:27px;padding:15px 18px;border:1px solid #c9a36b;border-radius:12px;background:#c9a36b;color:#17120c;font-weight:650;font-size:13px}
+.briefing-foot{text-align:center;color:#8f7a5b;font-size:9px;letter-spacing:1.5px;margin-top:20px}
+.app{display:none}.nav{display:none}
+body.entered #briefingScreen{display:none}body.entered .app{display:block}body.entered .nav{display:flex}
+.exit-briefing{border:1px solid #51402c;background:transparent;color:#b79a6b;border-radius:10px;padding:7px 10px;font-size:10px;margin-top:8px}
+@media(max-width:600px){#briefingScreen{padding:24px 21px}.briefing-copy{padding-top:clamp(40px,10vh,76px)}}
 </style>
 </head>
 <body>
+<section id="briefingScreen" aria-label="موجز يومك"><div class="briefing-inner"><header class="briefing-brand"><div><div class="briefing-wordmark">N O X</div><div class="briefing-sub">PRIVATE LUXURY</div></div><div style="color:#d2ae75;font-size:20px" aria-hidden="true">✧</div></header><div class="briefing-copy"><div class="briefing-date" id="briefingDate"></div><h1 id="briefingGreeting">مساء الخير، سيدي.</h1><p id="briefingMessage"></p><button class="briefing-enter" onclick="enterNOX()">الدخول إلى NOX　 →</button></div><div class="briefing-foot">YOUR WORLD · YOUR PACE</div></div></section>
 <div class="app">
-<header class="top"><div class="brand"><div class="mark">N</div><div><h1>NOX</h1><small>PRIVATE LUXURY</small></div></div><div class="top-date" id="today"></div></header>
+<header class="top"><div class="brand"><div class="mark">N</div><div><h1>NOX</h1><small>PRIVATE LUXURY</small></div></div><div class="top-date"><div id="today"></div><button class="exit-briefing" onclick="exitNOX()">العودة إلى الاستقبال</button></div></header>
 <main>
 <section class="view active" id="home">
 <div class="concierge">
@@ -130,6 +148,9 @@ function removeNote(id){removeItem('notes',id)}
 function removeBook(id){removeItem('books',id)}
 function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 
+function enterNOX(){renderBriefing();document.body.classList.add('entered');window.scrollTo({top:0,behavior:'instant'})}
+function exitNOX(){document.body.classList.remove('entered');window.scrollTo({top:0,behavior:'instant'})}
+function renderBriefing(){const h=new Date().getHours();$('briefingGreeting').textContent=(h<12?'صباح الخير':h<18?'طاب مساؤك':'مساء الخير')+'، سيدي.';$('briefingDate').textContent=new Date().toLocaleDateString('ar',{weekday:'long',day:'numeric',month:'long'}).toUpperCase();const p=data.profile||{};const parts=[];if(p.appointment)parts.push('موعدك '+p.appointment+(p.appointmentTime?' في الساعة '+p.appointmentTime:''));const events=(data.events||[]).slice().sort((a,b)=>(a.time||'').localeCompare(b.time||''));if(events.length)parts.push('وفي جدولك '+events.map(e=>(e.time?e.time+' — ':'')+e.title).join('، '));const pending=(data.tasks||[]).filter(t=>!t.done);if(pending.length)parts.push('ومن أولوياتك '+pending.map(t=>t.title).join('، '));if(p.reading)parts.push('كتابك الحالي «'+p.reading+'» محفوظ عند آخر موضع قراءة سجلته'+(p.readingPage?'، الصفحة '+p.readingPage:''));$('briefingMessage').textContent=parts.length?'راجعت التفاصيل التي حفظتها في NOX. '+parts.join('؛ ')+'. كل شيء جاهز، ويمكنك تعديل خطتك متى أردت.':'راجعت مساحتك. لا توجد مواعيد أو أولويات محفوظة تحتاج إلى عرضها الآن. كل شيء هادئ، وNOX جاهز متى أردت.'}
 function toggleDetail(id){const el=$(id);if(el)el.hidden=!el.hidden}
 function saveConcierge(){data.profile={weather:$('weatherInput').value.trim(),weatherExtra:$('weatherExtra').value.trim(),appointment:$('appointmentInput').value.trim(),appointmentTime:$('appointmentTimeInput').value.trim(),clothes:$('clothesInput').value.trim(),clothesPlace:$('clothesPlaceInput').value.trim(),fragrance:$('fragranceInput').value.trim(),fragrancePlace:$('fragrancePlaceInput').value.trim(),hair:$('hairInput').value.trim(),hairPlace:$('hairPlaceInput').value.trim(),conversation:$('conversationInput').value.trim(),conversationGuide:$('conversationGuideInput').value.trim(),reading:$('readingInput').value.trim(),readingPage:$('readingPageInput').value.trim(),readingQuote:$('readingQuoteInput').value.trim(),podcast:$('podcastInput').value.trim(),podcastMinute:$('podcastMinuteInput').value.trim(),assistantRequest:$('assistantRequestInput').value.trim(),assistantDetails:$('assistantDetailsInput').value.trim()};save();toast('حُفظت تفاصيل مساحتك')}
 function loadConciergeEditor(){const p=data.profile||{};const fields={weather:'weatherInput',weatherExtra:'weatherExtra',appointment:'appointmentInput',appointmentTime:'appointmentTimeInput',clothes:'clothesInput',clothesPlace:'clothesPlaceInput',fragrance:'fragranceInput',fragrancePlace:'fragrancePlaceInput',hair:'hairInput',hairPlace:'hairPlaceInput',conversation:'conversationInput',conversationGuide:'conversationGuideInput',reading:'readingInput',readingPage:'readingPageInput',readingQuote:'readingQuoteInput',podcast:'podcastInput',podcastMinute:'podcastMinuteInput',assistantRequest:'assistantRequestInput',assistantDetails:'assistantDetailsInput'};Object.entries(fields).forEach(([k,id])=>{if($(id))$(id).value=p[k]||''})}
