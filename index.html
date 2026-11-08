@@ -16,6 +16,83 @@
 /* Concierge home */
 .concierge-hero{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding:34px clamp(22px,4vw,42px);border:1px solid #665033;border-radius:23px;background:linear-gradient(115deg,#241d13,#17140f 72%);min-height:205px}.concierge-hero h1{font:clamp(30px,4vw,45px) Georgia,serif;font-weight:400;margin:14px 0 9px}.concierge-hero p{font-size:12px;color:#cbbda8;line-height:1.9;margin:0}.hero-copy{max-width:620px}.hero-side{text-align:left;display:flex;flex-direction:column;align-items:flex-end;gap:12px}.today-date{font:13px Georgia,serif;color:#d9c29f}.weather-chip{border:1px solid #554329;border-radius:30px;padding:7px 10px;color:#bdae98;font-size:10px;white-space:nowrap}.weather-chip button{background:none;border:0;color:var(--gold2);font-size:10px;margin-right:5px}.home-layout{display:flex;flex-direction:column;gap:0;margin-top:25px}.home-heading{display:flex;justify-content:space-between;align-items:end;margin:0 2px 10px}.home-heading h2{font:24px Georgia,serif;font-weight:400;margin:7px 0 0}.subtle{font-size:10px;color:var(--muted)}.concierge-list{border-top:1px solid var(--line)}.concierge-item{display:flex;align-items:center;gap:14px;padding:17px 3px;border-bottom:1px solid #382d1d;min-height:78px}.home-symbol{width:38px;height:38px;flex:0 0 38px;border:1px solid #59452b;border-radius:13px;display:grid;place-items:center;color:var(--gold2);font-size:17px}.home-item-copy{flex:1;min-width:0}.home-item-copy b{font-size:12px;font-weight:500;color:#eadcc7}.home-item-copy p{font-size:11px;color:var(--muted);line-height:1.7;margin:5px 0 0;white-space:pre-line;overflow-wrap:anywhere}.quiet-action{background:none;border:0;color:var(--gold2);font-size:10px;white-space:nowrap;padding:8px 4px}.quiet-action:hover{color:#fff}.home-library-link{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding:12px 2px;border-bottom:1px solid var(--line);font-size:11px;color:#d8c7ad}.home-footer{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:16px;border-top:1px solid #342a1d;color:#877963;font-size:10px}.daily-note{margin-top:22px;padding:23px clamp(19px,3vw,30px);border:1px solid #57442a;border-radius:18px;background:linear-gradient(120deg,#211a11,#17140f);}.daily-note .eyebrow{display:block;margin-bottom:10px}.daily-note p{font-size:12px;line-height:2.05;color:#d5c5ae;white-space:pre-line;margin:0}.daily-note .note-empty{color:var(--muted)}.home-column{padding:18px 0 2px;border-bottom:1px solid #3b2f20}.home-column:last-child{border-bottom:0}.home-column .home-heading h2{font:18px system-ui,sans-serif;font-weight:500}.home-column .home-heading .eyebrow{font-size:9px}
 @media(max-width:700px){.concierge-hero{align-items:flex-start;flex-direction:column;min-height:0;padding:25px 20px}.hero-side{width:100%;flex-direction:row;justify-content:space-between;align-items:center}.home-layout{gap:0;margin-top:16px}.home-heading h2{font-size:19px}.concierge-item{gap:10px;padding:15px 0}.home-symbol{width:34px;height:34px;flex-basis:34px}.home-footer{align-items:flex-start;gap:12px;line-height:1.8}.quiet-action{font-size:10px}.daily-note{margin-top:17px;padding:19px 16px}}
+
+/* Modern NOX interface — clean conversational design */
+:root{--bg:#212121;--panel:#2b2b2b;--panel2:#303030;--line:#3b3b3b;--gold:#b8c7d9;--gold2:#e4edf6;--text:#ececec;--muted:#a1a1aa;--green:#a6b9ad;--r:20px}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:0}
+.shell{max-width:1600px;grid-template-columns:248px minmax(0,1fr)}
+.side{background:#171717;border-left:1px solid #303030;padding:22px 14px}
+.brand{padding:8px 12px 25px}.sigil{border:0;background:#2b2b2b;border-radius:14px;color:#f1f1f1;font:600 22px Georgia}
+.brand b{font:600 17px system-ui;letter-spacing:3px;color:#f3f3f3}.brand small{color:#888;letter-spacing:1.5px}
+.nav-label{color:#777;font-size:10px;letter-spacing:1px}
+.nav button{border-radius:12px;color:#b8b8b8;font-size:13px;padding:12px 13px}
+.nav button .ico{color:#c5c5c5}.nav button.active,.nav button:hover{background:#2b2b2b;color:#fff}
+.side-foot{border-color:#303030;color:#777}
+.main{padding:25px clamp(16px,4vw,56px) 70px;max-width:1160px;width:100%;margin-inline:auto}
+.top{margin-bottom:28px}.crumb{font-size:12px;color:#999}
+.icon-btn{border:1px solid #444;background:#2d2d2d;color:#eee;border-radius:50%}
+.profile{color:#ddd}.avatar{border:1px solid #555;color:#eee}
+.concierge-hero{background:#2b2b2b;border:1px solid #3c3c3c;border-radius:24px;min-height:190px;padding:clamp(24px,4vw,42px);align-items:center}
+.concierge-hero h1{font:500 clamp(28px,4vw,40px) system-ui,sans-serif;letter-spacing:-1px;color:#f5f5f5}
+.concierge-hero p{color:#bdbdbd;font-size:13px}
+.eyebrow{color:#aaa;font-size:10px;letter-spacing:1px}
+.today-date{color:#d6d6d6;font:13px system-ui}.weather-chip{background:#333;border-color:#484848;color:#ccc}
+.weather-chip button{color:#eee}
+.daily-note{background:transparent;border:0;border-radius:0;border-bottom:1px solid #3b3b3b;padding:20px 4px;margin-top:8px}
+.daily-note .eyebrow{display:none}.daily-note p{font-size:13px;color:#d5d5d5;line-height:2}
+.home-layout{margin-top:16px}
+.home-column{padding:0;border:0}
+.home-column .home-heading{display:none}
+.concierge-list{border:0}
+.concierge-item{padding:17px 14px;border:1px solid #393939;border-radius:16px;background:#2b2b2b;margin:9px 0;min-height:76px;transition:background .18s,border-color .18s}
+.concierge-item:hover{background:#303030;border-color:#555}
+.home-symbol{border:0;background:#3a3a3a;border-radius:12px;color:#eee}
+.home-item-copy b{font-size:13px;color:#eee}.home-item-copy p{color:#aaa;font-size:12px}
+.quiet-action{color:#ddd;border-radius:9px;padding:8px 10px}.quiet-action:hover{background:#3b3b3b}
+.home-library-link{border:1px solid #393939;border-radius:14px;padding:14px;background:#2b2b2b;color:#ddd}
+.home-footer{border-color:#393939;color:#999}
+.section-head{margin:18px 2px 16px}.section-head h2{font-size:20px;font-weight:600}.section-head span{color:#999}
+.panel,.tile{background:#2b2b2b;border:1px solid #3b3b3b;border-radius:18px}
+.panel h3{font-size:15px}
+.field{background:#212121;border:1px solid #444;border-radius:13px;color:#eee;padding:12px 14px}
+.field:focus{border-color:#888;box-shadow:0 0 0 2px #ffffff12}
+.btn{background:#333;border:1px solid #484848;color:#eee;border-radius:999px;padding:10px 16px;font-size:12px}
+.btn:hover{background:#3d3d3d}.btn.primary{background:#eee;color:#222;border-color:#eee}.btn.primary:hover{background:#d8d8d8}
+.chat-layout{max-width:900px;margin:auto}
+.chatbox{background:#212121;border:1px solid #3b3b3b;border-radius:22px;min-height:68vh}
+.chat-head{background:#262626;border-bottom:1px solid #393939;padding:14px 18px}
+.chat-head b{font-size:14px}.chat-head small{color:#aaa}
+.assistant-pill{background-color:#333;border-color:#505050;color:#eee}
+.chat-messages{padding:22px;gap:18px;max-height:58vh}
+.bubble{font-size:13px;line-height:1.9;border-radius:18px}
+.bubble.bot{background:transparent;border:0;border-radius:0;color:#e5e5e5}
+.bubble.user{background:#343434;border:1px solid #454545;color:#f1f1f1;border-radius:18px}
+.bubble small{color:#aaa}
+.chat-compose{border-top:1px solid #393939;padding:13px 15px;background:#252525}
+.chat-compose .field{border-radius:999px;background:#333;border-color:#444;padding:13px 17px}
+.chat-compose .icon-btn{border:0;background:#333;width:42px;height:42px}
+.assistant-choice{border-radius:12px}.assistant-choice.active{background:#393939;border-color:#555}
+.setting-row{border-color:#3b3b3b}.setting-row b{font-size:13px}.setting-row small{color:#aaa}
+.tag{border-color:#555;color:#ddd}
+.toast{background:#333;border-color:#555;color:#fff;border-radius:999px}
+.secretary-fab{background:#eee;color:#222;border:0;box-shadow:0 5px 22px #0006}
+.secretary-dialog{background:#252525;border:1px solid #444;border-radius:24px}
+.secretary-dialog-head b{color:#eee}.secretary-dialog-head small{color:#aaa}
+.secretary-overlay{background:#0009}
+.mobile-nav{background:#171717;border-color:#333}.mobile-nav button{color:#aaa}.mobile-nav button.active{background:#333;color:#fff}
+.empty{color:#aaa}
+.book-card{border-color:#444}
+.pdf-stage{background:#202020;border-color:#444}
+@media(max-width:850px){
+ .shell{grid-template-columns:1fr}.main{padding:16px 14px 100px}
+ .side{display:none}.mobile-nav{background:#171717f5;border-top:1px solid #383838;backdrop-filter:blur(18px)}
+ .chatbox{min-height:65vh}.chat-messages{max-height:55vh}
+ .secretary-fab{right:16px;bottom:82px;background:#eee;color:#222}
+}
+@media(max-width:700px){.concierge-hero{background:#2b2b2b;border-color:#3c3c3c;gap:14px}.home-layout{margin-top:12px}.concierge-item{padding:14px 12px}.home-footer{font-size:10px}}
+@media(max-width:520px){.top{margin-bottom:18px}.concierge-hero h1{font-size:30px}.chat-head{flex-direction:row;align-items:center}.chat-head .chat-heading-copy{flex:1}.chat-head .quiet-action{font-size:10px}.bubble{max-width:94%}.daily-note p{font-size:12px}}
+
 </style></head>
 <body><div class="shell">
 <aside class="side"><div class="brand"><div class="sigil">N</div><div><b>NOX</b><small>PRIVATE LUXURY</small></div></div>
@@ -62,7 +139,7 @@
 <section class="view" id="log"><div class="section-head"><h2>السجل اليومي</h2><span>لحظاتك كما تريد تذكرها</span></div><div class="panel"><input id="logTitle" class="field" placeholder="عنوان اللحظة أو النشاط"><select id="logType" class="field"><option>دراسة</option><option>قراءة</option><option>بودكاست</option><option>مهارة</option><option>وقت شخصي</option><option>أخرى</option></select><textarea id="logText" class="field" placeholder="تفاصيل اختيارية"></textarea><button class="btn primary" onclick="addEntry('logs','logTitle','logText','logType')">حفظ في سجلي</button></div><div class="panel" id="logsList"></div></section>
 <section class="view" id="notes"><div class="section-head"><h2>الملاحظات</h2><span>مساحة لأفكارك</span></div><div class="panel"><input id="noteTitle" class="field" placeholder="عنوان الملاحظة"><textarea id="noteText" class="field" placeholder="اكتب ملاحظتك..."></textarea><button class="btn primary" onclick="addEntry('notes','noteTitle','noteText')">حفظ الملاحظة</button></div><div class="panel" id="notesList"></div></section>
 <section class="view" id="library"><div class="section-head"><h2>المكتبة</h2><span>كتبك بصيغة PDF</span></div><div class="panel"><h3>إضافة كتاب</h3><input id="bookTitle" class="field" placeholder="عنوان الكتاب"><input id="bookAuthor" class="field" placeholder="اسم المؤلف"><label class="muted" for="bookPdf">ملف الكتاب PDF</label><input id="bookPdf" class="field" type="file" accept="application/pdf,.pdf"><button class="btn primary" onclick="savePdfBook()">إضافة الكتاب إلى مكتبتي</button><p class="muted">تُحفظ ملفات الكتب على هذا الجهاز داخل المتصفح، ولا تُرفع إلى خادم.</p></div><div class="panel" id="booksList"></div><div class="panel pdf-reader" id="pdfReader" style="display:none"><div class="row" style="justify-content:space-between;align-items:center"><div><h3 id="readerTitle" style="margin:0 0 4px">قارئ الكتاب</h3><div class="muted" id="readerAuthor"></div></div><button class="btn" onclick="closePdfReader()">إغلاق</button></div><div class="pdf-toolbar"><button class="btn" id="prevPage" onclick="turnPage(-1)">السابق</button><span class="tag" id="pageStatus">صفحة 1</span><button class="btn" id="nextPage" onclick="turnPage(1)">التالي</button></div><div class="pdf-stage" dir="ltr"><canvas id="pdfCanvas"></canvas></div><div class="muted" style="text-align:center;margin-top:9px">اسحب الصفحة يمينًا أو يسارًا للتنقل · اضغط قرب الحافة للتقدم أو الرجوع</div></div></section>
-<section class="view" id="settings"><div class="section-head"><h2>الإعدادات</h2><span>مساحتك، وفق اختياراتك</span></div><div class="panel"><div class="setting-row"><div><b>اسم المخاطبة</b><small>جميع المساعدين ينادونك سيدي</small></div><span class="tag">سيدي · ثابت</span></div><div class="setting-row"><div><b>المظهر</b><small>الأسود الفحمي والذهبي البرونزي</small></div><span class="tag">Night Gold</span></div><div class="setting-row"><div><b>اللغة</b><small>لغة الواجهة الأساسية</small></div><select class="field" style="width:120px;margin:0" id="language" onchange="saveSetting('language',this.value)"><option value="ar">العربية</option><option value="en">English</option><option value="fr">Français</option></select></div><div class="setting-row"><div><b>التحية الصوتية</b><small>قراءة الردود عند تفعيلها</small></div><input class="switch" type="checkbox" id="speak" onchange="saveSetting('speak',this.checked)"></div><div class="setting-row"><div><b>إظهار لمحة الصفحة الرئيسية</b><small>مواعيدك وموضع القراءة المحفوظ</small></div><input class="switch" type="checkbox" id="showBrief" checked onchange="saveSetting('showBrief',this.checked)"></div><div class="setting-row"><div><b>تفضيلاتك الشخصية</b><small>تفاصيل تختار أن يتذكرها NOX</small></div><button class="btn" onclick="editProfile()">إدارة</button></div></div></section>
+<section class="view" id="settings"><div class="section-head"><h2>الإعدادات</h2><span>مساحتك، وفق اختياراتك</span></div><div class="panel"><div class="setting-row"><div><b>اسم المخاطبة</b><small>جميع المساعدين ينادونك سيدي</small></div><span class="tag">سيدي · ثابت</span></div><div class="setting-row"><div><b>المظهر</b><small>الأسود الفحمي والذهبي البرونزي</small></div><span class="tag">Night Gold</span></div><div class="setting-row"><div><b>اللغة</b><small>لغة الواجهة الأساسية</small></div><select class="field" style="width:120px;margin:0" id="language" onchange="saveSetting('language',this.value)"><option value="ar">العربية</option><option value="en">English</option><option value="fr">Français</option></select></div><div class="setting-row"><div><b>قراءة الردود صوتيًا</b><small>استخدم الصوت العربي المتاح على جهازك</small></div><input class="switch" type="checkbox" id="speak" onchange="saveSetting('speak',this.checked)"></div><div class="setting-row"><div><b>تجربة الصوت</b><small>يمكنك الاستماع أو إيقاف القراءة في أي وقت</small></div><div class="row"><button class="btn" onclick="testVoice()">استماع</button><button class="btn" onclick="stopVoice()">إيقاف</button></div></div><div class="setting-row"><div><b>إظهار لمحة الصفحة الرئيسية</b><small>مواعيدك وموضع القراءة المحفوظ</small></div><input class="switch" type="checkbox" id="showBrief" checked onchange="saveSetting('showBrief',this.checked)"></div><div class="setting-row"><div><b>تفضيلاتك الشخصية</b><small>تفاصيل تختار أن يتذكرها NOX</small></div><button class="btn" onclick="editProfile()">إدارة</button></div></div></section>
 <section class="view" id="privacy"><div class="section-head"><h2>الخصوصية والأمان</h2><span>أنت تتحكم ببياناتك</span></div><div class="panel"><p class="muted">هذه النسخة تحفظ السجل والملاحظات والمكتبة والمحادثات في التخزين المحلي للمتصفح. لا يوجد حساب أو مزامنة سحابية أو اتصال ذكاء اصطناعي في هذه النسخة. احفظ نسخة احتياطية قبل مسح بيانات المتصفح.</p><button class="btn primary" onclick="exportData()">تصدير نسخة احتياطية</button> <button class="btn" onclick="clearData()">مسح بيانات NOX</button></div></section>
 <section class="view" id="about"><div class="welcome"><div class="eyebrow">THE NOX PHILOSOPHY</div><h1>Luxury for yourself.</h1><p>الفخامة ليست استعراضًا. قد تكون مكتبًا مرتبًا، كتابًا مفتوحًا، أو مساءً هادئًا. NOX مساحة تساعدك على عيش تفاصيلك، لا على الهروب منها.</p></div></section>
 </main></div>
@@ -83,8 +160,30 @@ function switchAssistant(id){db.assistant=id;persist()}
 function newChat(){db.chats[db.assistant]=[];persist();toast('بدأنا محادثة جديدة يا سيدي')}
 function replyFor(text){const a=db.assistant;const t=text.toLowerCase();if(a==='companion')return 'أنا هنا للاستماع إليك دون حكم يا سيدي. يمكننا ترتيب ما تشعر به وفهم ما يشغلك خطوة خطوة. لست بديلًا عن مختص نفسي، وإذا كان الأمر ثقيلًا أو يؤثر في حياتك فمن الجيد التحدث مع شخص بالغ تثق به أو مختص. ما أكثر شيء يشغل بالك الآن؟';if(a==='scholar')return 'بكل سرور يا سيدي. لنقسم الموضوع إلى فكرة أساسية، ثم مثال واضح، وبعدها نتحقق من فهمك بتطبيق صغير.\n\nهذه نسخة تجريبية محلية؛ يمكنني عرض طريقة تنظيم السؤال، لكن الإجابة الذكية المتخصصة تحتاج ربط نموذج فعلي.';if(a==='curator')return 'حاضر يا سيدي. يمكننا تنظيم ما تقرؤه أو تستمع إليه، وتسجيل آخر موضع وصلت إليه، ثم بناء قائمة متابعة هادئة. أضف المصدر إلى مكتبتك كي يبقى محفوظًا.';if(a==='analyst')return 'حاضر يا سيدي. سأتعامل مع الفكرة عبر ثلاثة محاور: ما نعرفه، وما نفترضه، وما الخيارات المتاحة.\n\nهذه استجابة توضيحية تجريبية وليست تحليلًا مولدًا بنموذج ذكاء اصطناعي.';if(/موعد|يوم|تنظيم|خطة/.test(t))return 'بكل سرور يا سيدي. يمكننا البدء بما هو ثابت في يومك، ثم اختيار أولوية واحدة مهمة، وترك مساحة للراحة. أضف المواعيد أو الأنشطة إلى السجل، وستظهر في مساحتك.';return 'وصلت رسالتك يا سيدي. أنا Concierge في هذه المعاينة، ويمكنني توضيح شكل الحوار وتنظيم أقسام NOX. أما فهم الأسئلة بحرية وتوليد إجابات حقيقية مثل ChatGPT فيحتاج ربط خدمة ذكاء اصطناعي لاحقًا؛ لم أضع اتصالًا وهميًا أو مفتاح API.'}
 function sendChat(){const input=$('chatInput'),text=input.value.trim();if(!text)return;chat().push({from:'user',text});chat().push({from:'bot',text:replyFor(text)});input.value='';persist();if(db.settings.speak)speak(chat().at(-1).text)}
-function openSecretary(){$('secretaryOverlay').classList.add('open');setTimeout(()=>$('secretaryInput').focus(),50)}function closeSecretary(){$('secretaryOverlay').classList.remove('open')}function secretarySubmit(){const input=$('secretaryInput'),value=input.value.trim();if(!value)return toast('اكتب ما تريد حفظه أولًا');const id=Date.now();const routes=[{re:/ملابس|إطلالة|عطر|تسريحة/,key:'outfit',label:'الملابس والإطلالة'},{re:/عبارات|حوار|كلام|تواصل/,key:'speech',label:'أسلوب الكلام'},{re:/كتاب|قراءة|صفحة/,key:'reading',label:'المكتبة · القراءة'},{re:/بودكاست|حلقة|استماع/,key:'podcast',label:'المكتبة · البودكاست'},{re:/موعد|خطة|جدول|نشاط/,key:'plans',label:'الخطط والمواعيد'}];const route=routes.find(x=>x.re.test(value));if(route)db.home[route.key]=[db.home[route.key],value].filter(Boolean).join('\n');else db.home.requests=[db.home.requests,value].filter(Boolean).join('\n');db.notes.unshift({id,title:'طلب من السكرتير الشخصي',text:value,type:route?route.label:'متابعة',date:new Date().toLocaleDateString('ar')});persist();input.value='';closeSecretary();const isReminder=/ذكرني|تذكير|غدًا|بكرة/.test(value);toast(route?'أُضيف طلبك إلى قسم '+route.label+(isReminder?'، وحُفظت المتابعة دون إشعار تلقائي.':''):'حُفظ طلبك في الملاحظات والمواضيع التي تتابعها.'+(isReminder?' لا توجد إشعارات تلقائية بعد.':''))}function voiceInput(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){toast('الإملاء الصوتي غير مدعوم في هذا المتصفح. استخدم لوحة المفاتيح الصوتية.');return}const r=new SR();r.lang='ar-MA';r.onresult=e=>{$('chatInput').value=e.results[0][0].transcript};r.onerror=()=>toast('تعذر التقاط الصوت؛ تحقق من إذن الميكروفون');r.start()}
-function speak(text){if(!('speechSynthesis'in window))return;const u=new SpeechSynthesisUtterance(text);u.lang='ar';speechSynthesis.cancel();speechSynthesis.speak(u)}
+function openSecretary(){$('secretaryOverlay').classList.add('open');setTimeout(()=>$('secretaryInput').focus(),50)}function closeSecretary(){$('secretaryOverlay').classList.remove('open')}function secretarySubmit(){const input=$('secretaryInput'),value=input.value.trim();if(!value)return toast('اكتب ما تريد حفظه أولًا');const id=Date.now();const routes=[{re:/ملابس|إطلالة|عطر|تسريحة/,key:'outfit',label:'الملابس والإطلالة'},{re:/عبارات|حوار|كلام|تواصل/,key:'speech',label:'أسلوب الكلام'},{re:/كتاب|قراءة|صفحة/,key:'reading',label:'المكتبة · القراءة'},{re:/بودكاست|حلقة|استماع/,key:'podcast',label:'المكتبة · البودكاست'},{re:/موعد|خطة|جدول|نشاط/,key:'plans',label:'الخطط والمواعيد'}];const route=routes.find(x=>x.re.test(value));if(route)db.home[route.key]=[db.home[route.key],value].filter(Boolean).join('\n');else db.home.requests=[db.home.requests,value].filter(Boolean).join('\n');db.notes.unshift({id,title:'طلب من السكرتير الشخصي',text:value,type:route?route.label:'متابعة',date:new Date().toLocaleDateString('ar')});persist();input.value='';closeSecretary();const isReminder=/ذكرني|تذكير|غدًا|بكرة/.test(value);toast(route?'أُضيف طلبك إلى قسم '+route.label+(isReminder?'، وحُفظت المتابعة دون إشعار تلقائي.':''):'حُفظ طلبك في الملاحظات والمواضيع التي تتابعها.'+(isReminder?' لا توجد إشعارات تلقائية بعد.':''))}let activeRecognition=null;
+function voiceInput(){
+ const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+ if(!SR){toast('الإملاء الصوتي غير متاح في هذا المتصفح؛ يمكنك استخدام ميكروفون لوحة المفاتيح.');return}
+ if(activeRecognition){try{activeRecognition.stop()}catch(e){}}
+ const r=new SR();activeRecognition=r;r.lang='ar-MA';r.interimResults=false;r.maxAlternatives=1;
+ r.onstart=()=>toast('أستمع الآن…');
+ r.onresult=e=>{const heard=e.results?.[0]?.[0]?.transcript||'';if(heard){$('chatInput').value=heard;$('chatInput').focus()}};
+ r.onerror=e=>toast(e.error==='not-allowed'?'اسمح للمتصفح باستخدام الميكروفون.':'تعذر التقاط الصوت؛ حاول مرة أخرى.');
+ r.onend=()=>{if(activeRecognition===r)activeRecognition=null};
+ try{r.start()}catch(e){activeRecognition=null;toast('تعذر تشغيل الميكروفون الآن')}
+}
+function stopVoice(){if('speechSynthesis'in window)speechSynthesis.cancel();toast('تم إيقاف القراءة الصوتية')}
+function speak(text){
+ if(!('speechSynthesis'in window)||!text)return;
+ speechSynthesis.cancel();
+ const u=new SpeechSynthesisUtterance(String(text));u.lang=db.settings.language==='en'?'en-US':db.settings.language==='fr'?'fr-FR':'ar-MA';u.rate=0.96;u.pitch=1;u.volume=1;
+ const chooseVoice=()=>{const voices=speechSynthesis.getVoices()||[];const prefix=u.lang.split('-')[0];const voice=voices.find(v=>v.lang?.toLowerCase()===u.lang.toLowerCase())||voices.find(v=>v.lang?.toLowerCase().startsWith(prefix));if(voice)u.voice=voice};
+ chooseVoice();if(!speechSynthesis.getVoices().length)speechSynthesis.onvoiceschanged=chooseVoice;
+ u.onerror=()=>toast('تعذر تشغيل الصوت؛ تحقق من إعدادات الصوت في الجهاز');
+ speechSynthesis.speak(u);
+}
+function testVoice(){speak(db.settings.language==='en'?'Hello. This is a voice test.':db.settings.language==='fr'?'Bonjour. Ceci est un test vocal.':'مرحبًا، هذا اختبار للصوت في تطبيق نوكس.')}
+
 function saveSetting(k,v){db.settings[k]=v;persist();toast('تم تحديث الإعدادات')}
 function editProfile(){const v=prompt('ما التفاصيل التي تريد أن يتذكرها NOX عنك؟',db.profile.memo||'');if(v===null)return;db.profile.memo=v;persist();toast('حُفظت تفضيلاتك')}
 function editHome(key){const labels={weather:'ما حالة الطقس أو الملاحظة الجوية التي تريد عرضها؟',plans:'اكتب مواعيدك وخططك القادمة (يمكنك كتابة أكثر من موعد).',outfit:'اكتب الملابس والعطر والتسريحة التي اخترتها.',activities:'ما الأنشطة أو الاهتمامات التي تريد تذكرها اليوم؟',speech:'ما أسلوب الكلام أو العبارات وآداب الحوار التي تريد حفظها؟',requests:'ما الموضوع أو الطلب الذي تريد من NOX حفظه لمعالجته لاحقًا؟',reading:'ما الكتاب الذي تقرؤه؟ وأين وصلت إليه؟',podcast:'ما البودكاست أو الحلقة التي تتابعها؟ وأين توقفت؟'};const value=prompt(labels[key],db.home[key]||'');if(value===null)return;db.home[key]=value.trim();persist();toast('تم تحديث مساحتك')}
