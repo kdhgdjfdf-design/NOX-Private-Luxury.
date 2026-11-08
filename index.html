@@ -117,6 +117,53 @@ body{background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,syst
 
 /* Curated catalogue */
 .catalogue-shelves{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:8px;margin:12px 0}.catalogue-shelves button{border:1px solid #414141;background:#242424;color:#ddd;border-radius:12px;padding:11px;text-align:right;font-size:11px}.catalogue-shelves button.active{background:#3b3b3b;border-color:#777;color:#fff}.catalogue-shelves small{display:block;color:#aaa;font-size:9px;margin-top:4px}.catalogue-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0;flex-wrap:wrap}.novel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin-top:12px}.novel-item{padding:11px 12px;border:1px solid #414141;background:#242424;border-radius:12px}.novel-item b{display:block;font-size:12px;color:#eee;line-height:1.6}.novel-item small{display:block;color:#aaa;font-size:10px;margin-top:4px}.novel-item a{display:inline-block;color:#ddd;font-size:10px;margin-top:8px;text-decoration:none;border-bottom:1px solid #666;padding-bottom:2px}.catalogue-note{font-size:10px;color:#999;line-height:1.8;margin-top:10px}.novel-filter{margin:12px 0}.novel-filter input{width:100%}@media(max-width:520px){.catalogue-shelves{grid-template-columns:repeat(2,minmax(0,1fr))}.novel-grid{grid-template-columns:1fr}}
+
+/* NOX Library — quiet editorial redesign */
+.online-library{padding:0!important;overflow:hidden;background:#191817!important;border:1px solid rgba(190,157,103,.22)!important}
+.online-library-head{padding:20px 22px 0}.online-library-head h3{font-family:Georgia,serif;letter-spacing:.02em}
+.discover-tabs{padding:0 22px 16px;margin:16px 0 0!important;border-bottom:1px solid rgba(190,157,103,.16)}
+.discover-tabs .btn{border-radius:30px!important;padding:8px 16px!important;background:transparent!important;border:1px solid transparent!important;color:#aaa!important}
+.discover-tabs .btn.primary{background:rgba(183,145,86,.13)!important;border-color:rgba(183,145,86,.38)!important;color:#e2c99f!important}
+#discoverBooks{padding:0 22px 22px}
+.library-hero{position:relative;display:flex;justify-content:space-between;align-items:center;min-height:158px;padding:24px 26px;margin:0 -22px 22px;background:linear-gradient(110deg,#29231b 0%,#1d1b18 56%,#252018 100%);border-bottom:1px solid rgba(193,158,105,.2);overflow:hidden}
+.library-hero:after{content:"";position:absolute;width:230px;height:230px;border:1px solid rgba(199,164,112,.12);border-radius:50%;left:8%;top:-115px;box-shadow:0 0 0 24px rgba(199,164,112,.025),0 0 0 48px rgba(199,164,112,.02)}
+.library-hero-copy{position:relative;z-index:1}.library-kicker{font-size:9px;letter-spacing:.2em;color:#bda477;display:block;margin-bottom:8px}
+.library-hero h2{font-family:Georgia,serif;font-size:clamp(22px,4vw,30px);font-weight:500;color:#f0e5d2;margin:0 0 8px}
+.library-hero p{font-size:12px;color:#b8ad9e;margin:0}
+.library-mark{font-family:Georgia,serif;font-size:64px;color:rgba(200,168,117,.55);padding:0 20px}
+.library-search{display:flex;align-items:center;gap:10px;border:1px solid rgba(190,157,103,.27);background:#211f1c;border-radius:14px;padding:5px 7px 5px 15px;margin:0 0 24px}
+.library-search>span{font-size:22px;color:#bda477}.library-search input{flex:1;min-width:0;background:transparent!important;border:0!important;outline:0!important;color:#eee!important;padding:10px 0!important;margin:0!important;font-size:13px}
+.library-search input::placeholder{color:#80796f}.library-search button{border:1px solid rgba(190,157,103,.32);background:#8b7049;color:#fff0d8;border-radius:10px;padding:9px 17px;font-size:11px}
+.library-section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin:22px 0 13px}
+.library-section-head h3,.library-results-head h3{font-size:15px;color:#eee5d8;font-weight:500;margin:0 0 5px}
+.library-section-head p,.library-results-head p{font-size:11px;color:#938a7d;margin:0}
+.library-caption{font-size:10px;color:#a99a82;white-space:nowrap}
+.library-categories{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px;scrollbar-width:thin}
+.library-categories button{flex:0 0 auto;border:1px solid #484037;background:#24211d;color:#c9bda9;border-radius:30px;padding:9px 14px;font-size:11px}
+.library-categories button.active{background:#8b7049;border-color:#a88a5c;color:#fff2dc}
+.library-results-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:18px 0 12px}
+.library-pages{display:flex;align-items:center;gap:8px;color:#aaa;font-size:10px}
+.library-pages button{width:29px;height:29px;border:1px solid #514637;background:#26221d;color:#e5d1ad;border-radius:50%;font-size:18px}
+.library-pages button:disabled{opacity:.35}
+.library-book-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px}
+.library-book-card{min-width:0;padding:10px;border:1px solid rgba(190,157,103,.14);background:linear-gradient(150deg,#27231e,#1e1c19);border-radius:13px;transition:transform .18s,border-color .18s}
+.library-book-card:hover{transform:translateY(-2px);border-color:rgba(190,157,103,.42)}
+.library-cover{height:142px;border-radius:8px;margin-bottom:10px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(145deg,#554632,#2a251e);color:#e7d5b4;font-family:Georgia,serif;font-size:32px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.library-cover img{width:100%;height:100%;object-fit:cover}
+.library-book-card b{display:block;color:#eee4d5;font-size:11px;line-height:1.65;min-height:35px}
+.library-book-card small{display:block;color:#9f9689;font-size:9px;margin-top:4px;line-height:1.6}
+.library-book-card a{display:inline-block;color:#c9ad7f;font-size:10px;text-decoration:none;margin-top:9px}
+.library-empty{grid-column:1/-1;text-align:center;padding:32px 12px;color:#958a7b;font-size:12px;border:1px dashed #514637;border-radius:12px}
+.library-curated{border-top:1px solid rgba(190,157,103,.18);margin-top:30px;padding-top:10px}
+.library-search-small{margin:10px 0 14px;max-width:460px}
+.novel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:7px}
+.novel-item{display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid rgba(190,157,103,.13);background:#211f1c;border-radius:10px;min-width:0}
+.novel-cover{flex:0 0 34px;height:43px;border-radius:4px;background:linear-gradient(145deg,#806747,#3b3023);display:grid;place-items:center;color:#ead8b9;font:14px Georgia,serif}
+.novel-copy{flex:1;min-width:0}.novel-item b{font-size:10px;color:#e8dfd1;display:block;line-height:1.6}.novel-item small{font-size:9px;color:#9c9284;display:block;margin-top:2px}.novel-item a{color:#c4a878;font-size:9px;text-decoration:none;white-space:nowrap}
+.library-source-links{padding-top:18px;border-top:1px solid rgba(190,157,103,.14);margin-top:22px}
+.library-source-links a{background:transparent;border-color:#514637;color:#c9bda9}
+.catalogue-note{font-size:9px;color:#80786d;line-height:1.8;margin-top:12px}
+@media(max-width:520px){.online-library-head{padding:16px 15px 0}#discoverBooks{padding:0 15px 18px}.library-hero{margin-left:-15px;margin-right:-15px;padding:20px 17px;min-height:140px}.library-mark{font-size:48px;padding:0 5px}.library-book-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.library-cover{height:130px}.novel-grid{grid-template-columns:1fr}.library-section-head{align-items:flex-start}.library-caption{font-size:9px}}
 </style></head>
 <body><div class="shell">
 <aside class="side"><div class="brand"><div class="sigil">N</div><div><b>NOX</b><small>PRIVATE LUXURY</small></div></div>
@@ -171,13 +218,24 @@ body{background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,syst
   <button class="btn" id="discoverPodcastsTab" onclick="setDiscoverTab('podcasts')">البودكاست</button>
  </div>
  <div id="discoverBooks" class="discover-pane">
-  <div class="catalogue-intro" style="margin-top:18px"><h3>رفوف مختارة · نحو 1,000 كتاب</h3><p class="muted">عشرة مجالات معرفية، في كل مجال حتى 100 نتيجة. تُحمّل النتائج عند فتح الرف فقط، مع صفحات متتابعة.</p><div class="catalogue-shelves" id="catalogueShelves"></div><div class="catalogue-toolbar"><span class="tag" id="catalogueStatus">اختر مجالًا لعرض الكتب</span><div><button class="btn" id="cataloguePrev" onclick="changeCataloguePage(-1)" disabled>السابق</button> <span class="muted" id="cataloguePageLabel">—</span> <button class="btn" id="catalogueNext" onclick="changeCataloguePage(1)" disabled>التالي</button></div></div><div id="catalogueResults" class="discover-results"><div class="empty">اختر أحد الرفوف لبدء التصفح.</div></div><p class="catalogue-note">هذه نتائج فهرسة وليست كلها مجانية؛ الإتاحة والاستعارة تختلف حسب الكتاب والبلد والناشر.</p></div>
-  <div style="border-top:1px solid #414141;padding-top:17px;margin-top:22px"><h3>مئة رواية اخترتها بعناية</h3><p class="muted">مختارات من الرواية العربية والعالمية والكلاسيكيات وأدب المغامرة والخيال والواقعية.</p><div class="novel-filter"><input class="field" id="novelFilter" placeholder="ابحث في الروايات بالعنوان أو المؤلف" oninput="renderCuratedNovels()"></div><div class="novel-grid" id="curatedNovels"></div><p class="catalogue-note">زر «ابحث عن النسخة» يفتح فهرس Open Library؛ ولا يعني أن كل عنوان متاح مجانًا.</p></div>
-
-  <p class="muted">ابحث في فهارس الكتب، ثم افتح صفحة المصدر لمعرفة خيارات القراءة والإتاحة.</p>
-  <div class="discover-search"><input class="field" id="onlineBookQuery" placeholder="عنوان كتاب أو اسم مؤلف"><button class="btn primary" onclick="searchOnlineBooks()">بحث</button></div><div class="catalogue-toolbar"><span class="muted" id="onlineBookPageLabel"></span><div><button class="btn" id="onlineBookPrev" onclick="changeOnlineBookPage(-1)" disabled>السابق</button> <button class="btn" id="onlineBookNext" onclick="changeOnlineBookPage(1)" disabled>التالي</button></div></div>
-  <div class="discover-links"><a href="https://www.gutenberg.org/ebooks/" target="_blank" rel="noopener">Project Gutenberg · كتب مجانية من الملكية العامة</a><a href="https://standardebooks.org/" target="_blank" rel="noopener">Standard Ebooks · طبعات إلكترونية منقحة</a></div>
-  <div id="onlineBookResults" class="discover-results"><div class="empty">اكتب عنوانًا أو مؤلفًا لبدء البحث.</div></div>
+  <div class="library-hero">
+   <div class="library-hero-copy"><span class="library-kicker">THE PRIVATE LIBRARY</span><h2>مساحة للمعرفة، على مهل.</h2><p>اكتشف كتابك القادم، أو عُد إلى رواية تستحق وقتك.</p></div>
+   <div class="library-mark" aria-hidden="true">✧</div>
+  </div>
+  <div class="library-search"><span>⌕</span><input id="onlineBookQuery" placeholder="ابحث عن عنوان، مؤلف، أو فكرة..." onkeydown="if(event.key==='Enter')searchOnlineBooks()"><button onclick="searchOnlineBooks()">بحث</button></div>
+  <div class="library-section-head"><div><span class="library-kicker">EXPLORE</span><h3>تصفّح حسب الاهتمام</h3></div><span class="library-caption">10 مجالات · حتى 1,000 عنوان</span></div>
+  <div class="library-categories" id="catalogueShelves"></div>
+  <div class="library-results-head"><div><h3 id="catalogueStatus">مختارات المكتبة</h3><p id="catalogueHint">اختر مجالًا أو ابحث عن كتاب بعينه.</p></div><div class="library-pages"><button id="cataloguePrev" onclick="changeCataloguePage(-1)" disabled aria-label="السابق">‹</button><span id="cataloguePageLabel">—</span><button id="catalogueNext" onclick="changeCataloguePage(1)" disabled aria-label="التالي">›</button></div></div>
+  <div id="catalogueResults" class="library-book-grid"><div class="library-empty">اختر مجالًا لعرض الكتب.</div></div>
+  <div class="library-curated">
+   <div class="library-section-head"><div><span class="library-kicker">THE EDITOR'S SELECTION</span><h3>مئة رواية تستحق القراءة</h3><p>كلاسيكيات وأعمال عربية وعالمية منتقاة.</p></div><span class="library-caption">100 رواية</span></div>
+   <div class="library-search library-search-small"><span>⌕</span><input id="novelFilter" placeholder="ابحث في قائمة الروايات..." oninput="renderCuratedNovels()"></div>
+   <div class="novel-grid" id="curatedNovels"></div>
+  </div>
+  <div class="discover-links library-source-links"><a href="https://www.gutenberg.org/ebooks/" target="_blank" rel="noopener">Project Gutenberg</a><a href="https://standardebooks.org/" target="_blank" rel="noopener">Standard Ebooks</a></div>
+  <p class="catalogue-note">بيانات الفهرسة من Open Library. توفر القراءة المجانية أو الاستعارة يختلف حسب حقوق كل كتاب وبلدك.</p>
+  <div class="library-search" style="display:none"><input id="onlineBookPageLabel"><button id="onlineBookPrev"></button><button id="onlineBookNext"></button></div>
+  <div id="onlineBookResults" style="display:none"></div>
  </div>
  <div id="discoverAudio" class="discover-pane" hidden>
   <p class="muted">كتب صوتية مجانية مسجلة من متطوعين، مع إمكانية الاستماع من المصدر.</p>
@@ -258,13 +316,156 @@ function setDiscoverTab(tab){
  tabs.forEach(k=>{const pane=$('discover'+k[0].toUpperCase()+k.slice(1)+'Tab');const box=$('discover'+k[0].toUpperCase()+k.slice(1));if(pane)pane.classList.toggle('primary',k===tab);if(box)box.hidden=k!==tab});
 }
 let onlineBookPage=1,onlineBookQueryValue='';
-function searchOnlineBooks(page=1){const q=$('onlineBookQuery').value.trim();if(!q)return toast('اكتب عنوان كتاب أو اسم مؤلف');onlineBookQueryValue=q;onlineBookPage=page;const out=$('onlineBookResults');out.innerHTML='<div class="empty">جارٍ البحث في فهرس Open Library…</div>';fetch('https://openlibrary.org/search.json?q='+encodeURIComponent(q)+'&limit=20&page='+page+'&fields=key,title,author_name,first_publish_year,cover_i').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{if(onlineBookQueryValue!==q||onlineBookPage!==page)return;const items=d.docs||[];if(!items.length){out.innerHTML='<div class="empty">لم نعثر على نتائج.</div>';return}out.innerHTML=items.map(x=>'<article class="discover-result"><div><b>'+esc(x.title||'عنوان غير متاح')+'</b><small>'+esc((x.author_name||['مؤلف غير محدد']).slice(0,2).join('،'))+(x.first_publish_year?' · '+x.first_publish_year:'')+'</small></div><a class="btn" target="_blank" rel="noopener" href="https://openlibrary.org'+encodeURI(x.key||'')+'">عرض الكتاب</a></article>').join('');const pages=Math.max(1,Math.min(5,Math.ceil((d.numFound||items.length)/20)));$('onlineBookPageLabel').textContent='صفحة '+page+' من '+pages;$('onlineBookPrev').disabled=page<=1;$('onlineBookNext').disabled=page>=pages}).catch(()=>{out.innerHTML='<div class="empty">تعذر الاتصال بالفهرس الآن. جرّب مجددًا أو افتح Project Gutenberg.</div><a class="btn" target="_blank" rel="noopener" href="https://www.gutenberg.org/ebooks/search/?query='+encodeURIComponent(q)+'">البحث في Project Gutenberg</a>'})}
+function searchOnlineBooks(page=1){const q=$('onlineBookQuery').value.trim();if(!q)return toast('اكتب عنوانًا أو اسم مؤلف');onlineBookQueryValue=q;onlineBookPage=page;activeCatalogue=null;renderCatalogueShelves();$('catalogueStatus').textContent='نتائج البحث';$('catalogueHint').textContent='نتائج من فهرس Open Library';const out=$('catalogueResults');out.innerHTML='<div class="library-empty">جارٍ البحث في الفهرس…</div>';fetch('https://openlibrary.org/search.json?q='+encodeURIComponent(q)+'&limit=20&page='+page+'&fields=key,title,author_name,first_publish_year,cover_i').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{if(onlineBookQueryValue!==q||onlineBookPage!==page)return;const items=d.docs||[];if(!items.length){out.innerHTML='<div class="library-empty">لم نعثر على نتائج. جرّب كلمات أخرى.</div>';return}out.innerHTML=items.map(bookCard).join('');const pages=Math.max(1,Math.min(5,Math.ceil((d.numFound||items.length)/20)));$('cataloguePageLabel').textContent='صفحة '+page+' من '+pages;$('cataloguePrev').disabled=page<=1;$('catalogueNext').disabled=page>=pages}).catch(()=>{out.innerHTML='<div class="library-empty">تعذر الاتصال بالفهرس الآن. حاول مرة أخرى.</div>'})}
+
 function changeOnlineBookPage(delta){searchOnlineBooks(Math.max(1,onlineBookPage+delta))}
 
 const catalogueShelves=[['literature','الأدب العالمي','fiction'],['arabic','الأدب العربي','arabic literature'],['history','التاريخ والحضارات','history'],['philosophy','الفلسفة والفكر','philosophy'],['science','العلوم والطبيعة','science'],['psychology','علم النفس','psychology'],['biography','السير والتراجم','biography'],['business','الاقتصاد والإدارة','business'],['poetry','الشعر والمسرح','poetry'],['education','التعليم والمعرفة','education']];
 let activeCatalogue=null,cataloguePage=1,catalogueBusy=false;
-function renderCatalogueShelves(){const el=$('catalogueShelves');if(el)el.innerHTML=catalogueShelves.map(x=>'<button class="'+(activeCatalogue===x[0]?'active':'')+'" onclick="loadCatalogueShelf(\''+x[0]+'\',1)">'+esc(x[1])+'<small>حتى 100 عنوان · 5 صفحات</small></button>').join('')}
-function loadCatalogueShelf(id,page=1){if(catalogueBusy)return;const shelf=catalogueShelves.find(x=>x[0]===id);if(!shelf)return;activeCatalogue=id;cataloguePage=page;catalogueBusy=true;renderCatalogueShelves();$('catalogueResults').innerHTML='<div class="empty">جارٍ تحميل الرف…</div>';$('catalogueStatus').textContent=shelf[1];fetch('https://openlibrary.org/search.json?q='+encodeURIComponent('subject:'+shelf[2])+'&limit=20&page='+page+'&fields=key,title,author_name,first_publish_year').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{const items=d.docs||[];if(!items.length){$('catalogueResults').innerHTML='<div class="empty">لا توجد نتائج في هذا الرف حاليًا.</div>';return}$('catalogueResults').innerHTML=items.map(x=>'<article class="discover-result"><div><b>'+esc(x.title||'عنوان غير متاح')+'</b><small>'+esc((x.author_name||['مؤلف غير محدد']).slice(0,2).join('،'))+(x.first_publish_year?' · '+x.first_publish_year:'')+'</small></div><a class="btn" target="_blank" rel="noopener" href="https://openlibrary.org'+encodeURI(x.key||'')+'">صفحة الكتاب</a></article>').join('');const pages=Math.max(1,Math.min(5,Math.ceil((d.numFound||items.length)/20)));$('cataloguePageLabel').textContent='صفحة '+page+' من '+pages;$('cataloguePrev').disabled=page<=1;$('catalogueNext').disabled=page>=pages;$('catalogueStatus').textContent=shelf[1]+' · حتى '+Math.min(d.numFound||items.length,100)+' عنوانًا'}).catch(()=>$('catalogueResults').innerHTML='<div class="empty">تعذر الاتصال بـ Open Library. تحقق من الاتصال وحاول مجددًا.</div>').finally(()=>catalogueBusy=false)}
+function renderCatalogueShelves(){const el=$('catalogueShelves');if(el)el.innerHTML=catalogueShelves.map(x=>'<button class="'+(activeCatalogue===x[0]?'active':'')+'" onclick="loadCatalogueShelf(\''+x[0]+'\',1)">'+esc(x[1])+'</button>').join('')}
+function bookCard(x){const title=x.title||'عنوان غير متاح',author=(x.author_name||['مؤلف غير محدد']).slice(0,2).join('،'),cover=x.cover_i?'https://covers.openlibrary.org/b/id/'+x.cover_i+'-M.jpg':'',key=x.key||'';const initials=esc(title.trim().slice(0,2));return '<article class="library-book-card"><div class="library-cover">'+(cover?'<img loading="lazy" src="'+cover+'" alt="" onerror="this.remove()">':initials)+'</div><b>'+esc(title)+'</b><small>'+esc(author)+(x.first_publish_year?' · '+x.first_publish_year:'')+'</small><a target="_blank" rel="noopener" href="https://openlibrary.org'+encodeURI(key)+'">تفاصيل الكتاب ↗</a></article>'}
+
+function changeCataloguePage(delta){if(!activeCatalogue||catalogueBusy)return;const p=cataloguePage+delta;if(p>=1&&p<=5)loadCatalogueShelf(activeCatalogue,p)}
+const curatedNovels=[
+["كبرياء وتحامل","جين أوستن"],
+["جين إير","شارلوت برونتي"],
+["مرتفعات وذرينغ","إميلي برونتي"],
+["فرانكنشتاين","ماري شيلي"],
+["دراكولا","برام ستوكر"],
+["كونت مونت كريستو","ألكسندر دوما"],
+["البؤساء","فيكتور هوغو"],
+["أحدب نوتردام","فيكتور هوغو"],
+["قصة مدينتين","تشارلز ديكنز"],
+["أوليفر تويست","تشارلز ديكنز"],
+["ديفيد كوبرفيلد","تشارلز ديكنز"],
+["آمال عظيمة","تشارلز ديكنز"],
+["موبي ديك","هرمان ملفيل"],
+["نساء صغيرات","لويزا ماي ألكوت"],
+["آن في المرتفعات الخضراء","لوسي مود مونتغمري"],
+["جزيرة الكنز","روبرت لويس ستيفنسون"],
+["مختطف","روبرت لويس ستيفنسون"],
+["روبنسون كروزو","دانيال ديفو"],
+["رحلات غوليفر","جوناثان سويفت"],
+["دون كيخوتة","ميغيل دي ثيربانتس"],
+["الحرب والسلام","ليو تولستوي"],
+["آنا كارنينا","ليو تولستوي"],
+["الجريمة والعقاب","فيودور دوستويفسكي"],
+["الإخوة كارامازوف","فيودور دوستويفسكي"],
+["الأبله","فيودور دوستويفسكي"],
+["الآباء والبنون","إيفان تورغينيف"],
+["الأرواح الميتة","نيقولاي غوغول"],
+["المعلم ومارغريتا","ميخائيل بولغاكوف"],
+["1984","جورج أورويل"],
+["مزرعة الحيوان","جورج أورويل"],
+["عالم جديد شجاع","ألدوس هكسلي"],
+["فهرنهايت 451","راي برادبري"],
+["أن تقتل طائرًا بريئًا","هاربر لي"],
+["الحارس في حقل الشوفان","ج. د. سالنجر"],
+["سيد الخواتم","ج. ر. ر. تولكين"],
+["الهوبيت","ج. ر. ر. تولكين"],
+["كثيب","فرانك هربرت"],
+["ساحر الأرض","أورسولا لو غوين"],
+["الأسد والساحرة وخزانة الملابس","سي. إس. لويس"],
+["أليس في بلاد العجائب","لويس كارول"],
+["عبر المرآة","لويس كارول"],
+["الحديقة السرية","فرانسيس هودجسون برنيت"],
+["هايدي","يوهانا شبيري"],
+["الجمال الأسود","آنا سويل"],
+["نداء البرية","جاك لندن"],
+["الناب الأبيض","جاك لندن"],
+["كتاب الأدغال","روديارد كبلنغ"],
+["قلب الظلام","جوزيف كونراد"],
+["حول العالم في ثمانين يومًا","جول فيرن"],
+["عشرون ألف فرسخ تحت البحر","جول فيرن"],
+["رحلة إلى مركز الأرض","جول فيرن"],
+["آلة الزمن","هـ. ج. ويلز"],
+["الرجل الخفي","هـ. ج. ويلز"],
+["حرب العوالم","هـ. ج. ويلز"],
+["جزيرة الدكتور مورو","هـ. ج. ويلز"],
+["صورة دوريان غراي","أوسكار وايلد"],
+["الحرف القرمزي","ناثانيال هوثورن"],
+["مغامرات هاكلبيري فين","مارك توين"],
+["مغامرات توم سوير","مارك توين"],
+["عصر البراءة","إديث وارتون"],
+["بيت المرح","إديث وارتون"],
+["غاتسبي العظيم","ف. سكوت فيتزجيرالد"],
+["الشمس تشرق أيضًا","إرنست همنغواي"],
+["العجوز والبحر","إرنست همنغواي"],
+["لمن تقرع الأجراس","إرنست همنغواي"],
+["فئران ورجال","جون شتاينبك"],
+["عناقيد الغضب","جون شتاينبك"],
+["شرق عدن","جون شتاينبك"],
+["ريبيكا","دافني دو مورييه"],
+["ثم لم يبق أحد","أغاثا كريستي"],
+["جريمة في قطار الشرق السريع","أغاثا كريستي"],
+["دراسة في اللون القرمزي","آرثر كونان دويل"],
+["كلب آل باسكرفيل","آرثر كونان دويل"],
+["اسم الوردة","أمبرتو إيكو"],
+["الأمير الصغير","أنطوان دو سانت إكزوبيري"],
+["الغريب","ألبير كامو"],
+["الطاعون","ألبير كامو"],
+["مدام بوفاري","غوستاف فلوبير"],
+["الأحمر والأسود","ستاندال"],
+["الأم","مكسيم غوركي"],
+["الدون الهادئ","ميخائيل شولوخوف"],
+["موسم الهجرة إلى الشمال","الطيب صالح"],
+["زقاق المدق","نجيب محفوظ"],
+["بين القصرين","نجيب محفوظ"],
+["قصر الشوق","نجيب محفوظ"],
+["السكرية","نجيب محفوظ"],
+["أولاد حارتنا","نجيب محفوظ"],
+["اللص والكلاب","نجيب محفوظ"],
+["ميرامار","نجيب محفوظ"],
+["بداية ونهاية","نجيب محفوظ"],
+["رجال في الشمس","غسان كنفاني"],
+["عائد إلى حيفا","غسان كنفاني"],
+["مدن الملح","عبد الرحمن منيف"],
+["شرق المتوسط","عبد الرحمن منيف"],
+["ذاكرة الجسد","أحلام مستغانمي"],
+["فوضى الحواس","أحلام مستغانمي"],
+["الأسود يليق بك","أحلام مستغانمي"],
+["ساق البامبو","سعود السنعوسي"],
+["فرانكشتاين في بغداد","أحمد سعداوي"],
+["عزازيل","يوسف زيدان"]
+];
+function renderCuratedNovels(){const el=$('curatedNovels');if(!el)return;const q=($('novelFilter')?.value||'').trim().toLocaleLowerCase();const rows=curatedNovels.filter(x=>(x[0]+' '+x[1]).toLocaleLowerCase().includes(q));el.innerHTML=rows.map((x,i)=>'<article class="novel-item"><div class="novel-cover">'+esc(x[0].trim().slice(0,1))+'</div><div class="novel-copy"><b>'+esc(x[0])+'</b><small>'+esc(x[1])+'</small></div><a target="_blank" rel="noopener" href="https://openlibrary.org/search?q='+encodeURIComponent(x[0]+' '+x[1])+'">اكتشف ↗</a></article>').join('')||'<div class="library-empty">لا توجد روايات مطابقة.</div>'}
+
+
+function searchOnlineAudio(){
+ const q=$('onlineAudioQuery').value.trim();if(!q)return toast('اكتب عنوان كتاب صوتي أو اسم مؤلف');
+ const out=$('onlineAudioResults');out.innerHTML='<div class="empty">جارٍ البحث في LibriVox…</div>';
+ fetch('https://librivox.org/api/feed/audiobooks/?format=json&extended=1&limit=12&title='+encodeURIComponent(q))
+ .then(r=>{if(!r.ok)throw new Error('search failed');return r.json()})
+ .then(d=>{const items=d.books||d||[];if(!items.length){out.innerHTML='<div class="empty">لم نعثر على نتائج بهذا العنوان. جرّب كلمة أقصر.</div>';return}
+ out.innerHTML=items.slice(0,10).map(x=>'<article class="discover-result"><div><b>'+esc(x.title||'كتاب صوتي')+'</b><small>'+esc((x.authors||[]).map(a=>a.first_name+' '+a.last_name).join('،')||x.language||'LibriVox')+' · '+esc(x.totaltime||'')+'</small></div><a class="btn" target="_blank" rel="noopener" href="'+esc(x.url_librivox||x.url_rss||'https://librivox.org/')+'">استمع من المصدر</a></article>').join('')})
+ .catch(()=>{out.innerHTML='<div class="empty">تعذر الاتصال بـ LibriVox الآن. افتح الفهرس وابحث هناك.</div><a class="btn" target="_blank" rel="noopener" href="https://librivox.org/search/?q='+encodeURIComponent(q)+'">فتح بحث LibriVox</a>'});
+}
+function searchOnlinePodcasts(){
+ const q=$('onlinePodcastQuery').value.trim();if(!q)return toast('اكتب اسم بودكاست أو موضوعًا');
+ const out=$('onlinePodcastResults');out.innerHTML='<div class="discover-result"><div><b>نتائج البحث عن: '+esc(q)+'</b><small>افتح البحث في منصة البودكاست لاختيار البرنامج والحلقات.</small></div><a class="btn" target="_blank" rel="noopener" href="https://podcasts.apple.com/search?term='+encodeURIComponent(q)+'">عرض النتائج</a></div>';
+}
+
+function renderBooks(){const el=$('booksList');if(!db.books.length){el.innerHTML='<div class="empty">مكتبتك فارغة حاليًا. أضف أول كتاب PDF من الأعلى.</div>';return}el.innerHTML=db.books.map(b=>'<div class="book-card"><div class="book-meta"><b>'+esc(b.title)+'</b><small>'+esc(b.author||'المؤلف غير محدد')+' · PDF</small></div><div class="book-actions"><button class="btn primary" onclick="openPdfBook('+b.id+')">قراءة الكتاب</button><button class="btn" onclick="deletePdfBook('+b.id+')">حذف</button></div></div>').join('')}
+function openPdfDb(){return new Promise((resolve,reject)=>{const req=indexedDB.open('nox-private-pdf-library',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('pdfs'))req.result.createObjectStore('pdfs',{keyPath:'id'})};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
+async function storePdf(id,buffer){const dbx=await openPdfDb();return new Promise((resolve,reject)=>{const tx=dbx.transaction('pdfs','readwrite');tx.objectStore('pdfs').put({id,buffer});tx.oncomplete=()=>{dbx.close();resolve()};tx.onerror=()=>{dbx.close();reject(tx.error)}})}
+async function readPdf(id){const dbx=await openPdfDb();return new Promise((resolve,reject)=>{const tx=dbx.transaction('pdfs','readonly');const req=tx.objectStore('pdfs').get(id);req.onsuccess=()=>{dbx.close();resolve(req.result?.buffer||null)};req.onerror=()=>{dbx.close();reject(req.error)}})}
+async function erasePdf(id){const dbx=await openPdfDb();return new Promise((resolve,reject)=>{const tx=dbx.transaction('pdfs','readwrite');tx.objectStore('pdfs').delete(id);tx.oncomplete=()=>{dbx.close();resolve()};tx.onerror=()=>{dbx.close();reject(tx.error)}})}
+async function savePdfBook(){const title=$('bookTitle').value.trim(),author=$('bookAuthor').value.trim(),file=$('bookPdf').files[0];if(!title||!author||!file)return toast('أدخل العنوان واسم المؤلف واختر ملف PDF');if(file.type!=='application/pdf'&&!file.name.toLowerCase().endsWith('.pdf'))return toast('اختر ملف PDF صالحًا');if(file.size>80*1024*1024)return toast('حجم الملف كبير؛ الحد الأقصى 80 MB');try{const bytes=await file.arrayBuffer();if(!window.pdfjsLib)throw new Error('تعذر تحميل قارئ PDF؛ تحقق من اتصال الإنترنت');pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';const test=await pdfjsLib.getDocument({data:new Uint8Array(bytes.slice(0))}).promise;const pages=test.numPages;test.destroy();const id=Date.now();await storePdf(id,bytes);db.books.unshift({id,title,author,pages,date:new Date().toLocaleDateString('ar')});persist();$('bookTitle').value='';$('bookAuthor').value='';$('bookPdf').value='';toast('أُضيف الكتاب بنجاح · '+pages+' صفحة')}catch(e){console.error(e);toast('تعذر قراءة الملف. تأكد أنه PDF سليم وحاول مجددًا')}}
+let activePdf=null,activePdfPage=1,pdfRenderTask=null;
+async function openPdfBook(id){try{if(!window.pdfjsLib)throw new Error('PDF.js unavailable');const b=db.books.find(x=>x.id===id);if(!b)return;const bytes=await readPdf(id);if(!bytes)throw new Error('PDF file missing');pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';activePdf=await pdfjsLib.getDocument({data:new Uint8Array(bytes)}).promise;activePdfPage=1;$('readerTitle').textContent=b.title;$('readerAuthor').textContent=b.author+' · '+activePdf.numPages+' صفحة';$('pdfReader').style.display='block';await renderPdfPage();$('pdfReader').scrollIntoView({behavior:'smooth',block:'start'})}catch(e){console.error(e);toast('لم أجد ملف PDF لهذا الكتاب؛ أعد إضافته من جهازك')}}
+async function renderPdfPage(){if(!activePdf)return;setupPdfTouch();try{if(pdfRenderTask){pdfRenderTask.cancel();pdfRenderTask=null}const page=await activePdf.getPage(activePdfPage),canvas=$('pdfCanvas'),ctx=canvas.getContext('2d'),base=page.getViewport({scale:1}),available=Math.max(250,Math.min(window.innerWidth-54,760)),scale=Math.min(1.65,available/base.width),viewport=page.getViewport({scale});canvas.width=viewport.width;canvas.height=viewport.height;pdfRenderTask=page.render({canvasContext:ctx,viewport});await pdfRenderTask.promise;pdfRenderTask=null;$('pageStatus').textContent='صفحة '+activePdfPage+' من '+activePdf.numPages;$('prevPage').disabled=activePdfPage<=1;$('nextPage').disabled=activePdfPage>=activePdf.numPages}catch(e){if(e.name!=='RenderingCancelledException')console.error(e)}}
+function turnPage(delta){if(!activePdf)return;activePdfPage=Math.max(1,Math.min(activePdf.numPages,activePdfPage+delta));renderPdfPage()}
+let pdfTouchStart=null;
+function setupPdfTouch(){const stage=$('pdfCanvas');if(!stage||stage.dataset.touchReady)return;stage.dataset.touchReady='1';stage.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;pdfTouchStart={x:e.clientX,y:e.clientY,time:Date.now(),type:e.pointerType}}, {passive:true});stage.addEventListener('pointerup',e=>{if(!pdfTouchStart)return;const dx=e.clientX-pdfTouchStart.x,dy=e.clientY-pdfTouchStart.y,elapsed=Date.now()-pdfTouchStart.time;const width=stage.getBoundingClientRect().width;const start=pdfTouchStart;pdfTouchStart=null;if(Math.abs(dx)>48&&Math.abs(dx)>Math.abs(dy)*1.25&&elapsed<1200){turnPage(dx<0?1:-1);return}if(Math.abs(dx)<12&&Math.abs(dy)<12&&start.type==='touch'){const x=e.clientX-stage.getBoundingClientRect().left;if(x>width*.82)turnPage(1);else if(x<width*.18)turnPage(-1)}}, {passive:true});stage.addEventListener('pointercancel',()=>{pdfTouchStart=null},{passive:true})}
+
+function closePdfReader(){if(activePdf){activePdf.destroy();activePdf=null}$('pdfReader').style.display='none'}
+async function deletePdfBook(id){if(!confirm('حذف هذا الكتاب وملف PDF المحفوظ؟'))return;try{await erasePdf(id)}catch(e){}db.books=db.books.filter(x=>x.id!==id);persist();if(activePdf)closePdfReader()}
+function renderAll(){renderHome();$('logsList').innerHTML=list('logs');$('notesList').innerHTML=list('notes');renderBooks();renderCouncil();$('language').value=db.settings.language;$('speak').checked=!!db.settings.speak;$('showBrief').checked=db.settings.showBrief!==false}
+function exportData(){const a=document.createElement('a'),u=URL.createObjectURL(new Blob([JSON.stringify(db,null,2)],{type:'application/json'}));a.href=u;a.download='nox-private-luxury-backup.json';a.click();URL.revokeObjectURL(u);toast('تم تجهيز النسخة الاحتياطية')}
+function clearData(){if(!confirm('سيتم حذف بيانات NOX المحلية. هل تريد المتابعة؟'))return;localStorage.removeItem(KEY);location.reload()}
+renderAll();renderCatalogueShelves();renderCuratedNovels();
+</script></body></htmlfunction loadCatalogueShelf(id,page=1){if(catalogueBusy)return;const shelf=catalogueShelves.find(x=>x[0]===id);if(!shelf)return;activeCatalogue=id;cataloguePage=page;catalogueBusy=true;renderCatalogueShelves();$('catalogueStatus').textContent=shelf[1];$('catalogueHint').textContent='مجموعة مختارة من الفهرس · 20 كتابًا في الصفحة';$('catalogueResults').innerHTML='<div class="library-empty">جارٍ تجهيز الرف…</div>';fetch('https://openlibrary.org/search.json?q='+encodeURIComponent('subject:'+shelf[2])+'&limit=20&page='+page+'&fields=key,title,author_name,first_publish_year,cover_i').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{const items=d.docs||[];if(!items.length){$('catalogueResults').innerHTML='<div class="library-empty">لا توجد نتائج في هذا الرف حاليًا.</div>';return}$('catalogueResults').innerHTML=items.map(bookCard).join('');const pages=Math.max(1,Math.min(5,Math.ceil((d.numFound||items.length)/20)));$('cataloguePageLabel').textContent='صفحة '+page+' من '+pages;$('cataloguePrev').disabled=page<=1;$('catalogueNext').disabled=page>=pages}).catch(()=>$('catalogueResults').innerHTML='<div class="library-empty">تعذر الاتصال بـ Open Library. حاول مجددًا.</div>').finally(()=>catalogueBusy=false)}
+
 function changeCataloguePage(delta){if(!activeCatalogue||catalogueBusy)return;const p=cataloguePage+delta;if(p>=1&&p<=5)loadCatalogueShelf(activeCatalogue,p)}
 const curatedNovels=[
 ["كبرياء وتحامل","جين أوستن"],
