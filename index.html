@@ -223,21 +223,21 @@ body{background:radial-gradient(ellipse at 82% -12%,rgba(119,91,139,.20),transpa
 <div class="home-layout">
   <section class="home-column">
     <div class="home-heading"><div><span class="eyebrow">01 · PERSONAL PRESENTATION</span><h2>الملابس والإطلالة</h2></div><span class="subtle">مظهرك كما اخترته</span></div>
-    <div class="concierge-list"><article class="concierge-item"><span class="home-symbol">◇</span><div class="home-item-copy"><b>الملابس · العطر · التسريحة</b><p id="outfitView">لم تخطط لإطلالة بعد.</p></div><button class="quiet-action" onclick="editHome('outfit')">＋ تعديل</button></article></div>
+    <div class="concierge-list"><article class="concierge-item"><span class="home-symbol">◇</span><div class="home-item-copy"><b>الملابس · العطر · التسريحة</b><p id="outfitView">لم تخطط لإطلالة بعد.</p></div></article></div>
   </section>
   <section class="home-column">
     <div class="home-heading"><div><span class="eyebrow">02 · CONVERSATION</span><h2>أسلوب الكلام</h2></div><span class="subtle">وقار ولباقة</span></div>
-    <div class="concierge-list"><article class="concierge-item"><span class="home-symbol">✧</span><div class="home-item-copy"><b>دليل المحادثة وآداب الحوار</b><p id="speechView">احفظ العبارات والأسلوب الذي تود اتباعه في لقاءاتك.</p></div><button class="quiet-action" onclick="editHome('speech')">＋ إضافة</button></article></div>
+    <div class="concierge-list"><article class="concierge-item"><span class="home-symbol">✧</span><div class="home-item-copy"><b>دليل المحادثة وآداب الحوار</b><p id="speechView">احفظ العبارات والأسلوب الذي تود اتباعه في لقاءاتك.</p></div></article></div>
   </section>
   <section class="home-column">
     <div class="home-heading"><div><span class="eyebrow">03 · TO EXPLORE</span><h2>أشياء تريد معالجتها</h2></div><span class="subtle">طلباتك ومواضيعك المحفوظة</span></div>
-    <div class="concierge-list"><article class="concierge-item"><span class="home-symbol">⌁</span><div class="home-item-copy"><b>مواضيع للبحث والمتابعة</b><p id="requestsView">لا توجد مواضيع محفوظة بعد.</p></div><button class="quiet-action" onclick="editHome('requests')">＋ إضافة</button></article></div>
+    <div class="concierge-list"><article class="concierge-item"><span class="home-symbol">⌁</span><div class="home-item-copy"><b>مواضيع للبحث والمتابعة</b><p id="requestsView">لا توجد مواضيع محفوظة بعد.</p></div></article></div>
   </section>
   <section class="home-column">
     <div class="home-heading"><div><span class="eyebrow">04 · YOUR LIBRARY</span><h2>المكتبة</h2></div><span class="subtle">من حيث توقفت</span></div>
     <div class="concierge-list">
-      <article class="concierge-item"><span class="home-symbol">▤</span><div class="home-item-copy"><b>الكتاب الحالي</b><p id="readingView">لا يوجد كتاب قيد القراءة.</p></div><button class="quiet-action" onclick="editHome('reading')">＋ تحديث</button></article>
-      <article class="concierge-item"><span class="home-symbol">♫</span><div class="home-item-copy"><b>البودكاست</b><p id="podcastView">لا يوجد محتوى قيد الاستماع.</p></div><button class="quiet-action" onclick="editHome('podcast')">＋ تحديث</button></article>
+      <article class="concierge-item"><span class="home-symbol">▤</span><div class="home-item-copy"><b>الكتاب الحالي</b><p id="readingView">لا يوجد كتاب قيد القراءة.</p></div></article>
+      <article class="concierge-item"><span class="home-symbol">♫</span><div class="home-item-copy"><b>البودكاست</b><p id="podcastView">لا يوجد محتوى قيد الاستماع.</p></div></article>
     </div>
     <div class="home-library-link"><span>مكتبتك الخاصة وملفات PDF</span><button class="quiet-action" onclick="go('library')">فتح المكتبة ↗</button></div>
   </section>
@@ -472,146 +472,6 @@ const curatedNovels=[
 ];
 function renderCuratedNovels(){const el=$('curatedNovels');if(!el)return;const q=($('novelFilter')?.value||'').trim().toLocaleLowerCase();const rows=curatedNovels.filter(x=>(x[0]+' '+x[1]).toLocaleLowerCase().includes(q));el.innerHTML=rows.map((x,i)=>'<article class="novel-item"><div class="novel-cover">'+esc(x[0].trim().slice(0,1))+'</div><div class="novel-copy"><b>'+esc(x[0])+'</b><small>'+esc(x[1])+'</small></div><a target="_blank" rel="noopener" href="https://openlibrary.org/search?q='+encodeURIComponent(x[0]+' '+x[1])+'">اكتشف ↗</a></article>').join('')||'<div class="library-empty">لا توجد روايات مطابقة.</div>'}
 
-
-function searchOnlineAudio(){
- const q=$('onlineAudioQuery').value.trim();if(!q)return toast('اكتب عنوان كتاب صوتي أو اسم مؤلف');
- const out=$('onlineAudioResults');out.innerHTML='<div class="empty">جارٍ البحث في LibriVox…</div>';
- fetch('https://librivox.org/api/feed/audiobooks/?format=json&extended=1&limit=12&title='+encodeURIComponent(q))
- .then(r=>{if(!r.ok)throw new Error('search failed');return r.json()})
- .then(d=>{const items=d.books||d||[];if(!items.length){out.innerHTML='<div class="empty">لم نعثر على نتائج بهذا العنوان. جرّب كلمة أقصر.</div>';return}
- out.innerHTML=items.slice(0,10).map(x=>'<article class="discover-result"><div><b>'+esc(x.title||'كتاب صوتي')+'</b><small>'+esc((x.authors||[]).map(a=>a.first_name+' '+a.last_name).join('،')||x.language||'LibriVox')+' · '+esc(x.totaltime||'')+'</small></div><a class="btn" target="_blank" rel="noopener" href="'+esc(x.url_librivox||x.url_rss||'https://librivox.org/')+'">استمع من المصدر</a></article>').join('')})
- .catch(()=>{out.innerHTML='<div class="empty">تعذر الاتصال بـ LibriVox الآن. افتح الفهرس وابحث هناك.</div><a class="btn" target="_blank" rel="noopener" href="https://librivox.org/search/?q='+encodeURIComponent(q)+'">فتح بحث LibriVox</a>'});
-}
-function searchOnlinePodcasts(){
- const q=$('onlinePodcastQuery').value.trim();if(!q)return toast('اكتب اسم بودكاست أو موضوعًا');
- const out=$('onlinePodcastResults');out.innerHTML='<div class="discover-result"><div><b>نتائج البحث عن: '+esc(q)+'</b><small>افتح البحث في منصة البودكاست لاختيار البرنامج والحلقات.</small></div><a class="btn" target="_blank" rel="noopener" href="https://podcasts.apple.com/search?term='+encodeURIComponent(q)+'">عرض النتائج</a></div>';
-}
-
-function renderBooks(){const el=$('booksList');if(!db.books.length){el.innerHTML='<div class="empty">مكتبتك فارغة حاليًا. أضف أول كتاب PDF من الأعلى.</div>';return}el.innerHTML=db.books.map(b=>'<div class="book-card"><div class="book-meta"><b>'+esc(b.title)+'</b><small>'+esc(b.author||'المؤلف غير محدد')+' · PDF</small></div><div class="book-actions"><button class="btn primary" onclick="openPdfBook('+b.id+')">قراءة الكتاب</button><button class="btn" onclick="deletePdfBook('+b.id+')">حذف</button></div></div>').join('')}
-function openPdfDb(){return new Promise((resolve,reject)=>{const req=indexedDB.open('nox-private-pdf-library',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('pdfs'))req.result.createObjectStore('pdfs',{keyPath:'id'})};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
-async function storePdf(id,buffer){const dbx=await openPdfDb();return new Promise((resolve,reject)=>{const tx=dbx.transaction('pdfs','readwrite');tx.objectStore('pdfs').put({id,buffer});tx.oncomplete=()=>{dbx.close();resolve()};tx.onerror=()=>{dbx.close();reject(tx.error)}})}
-async function readPdf(id){const dbx=await openPdfDb();return new Promise((resolve,reject)=>{const tx=dbx.transaction('pdfs','readonly');const req=tx.objectStore('pdfs').get(id);req.onsuccess=()=>{dbx.close();resolve(req.result?.buffer||null)};req.onerror=()=>{dbx.close();reject(req.error)}})}
-async function erasePdf(id){const dbx=await openPdfDb();return new Promise((resolve,reject)=>{const tx=dbx.transaction('pdfs','readwrite');tx.objectStore('pdfs').delete(id);tx.oncomplete=()=>{dbx.close();resolve()};tx.onerror=()=>{dbx.close();reject(tx.error)}})}
-async function savePdfBook(){const title=$('bookTitle').value.trim(),author=$('bookAuthor').value.trim(),file=$('bookPdf').files[0];if(!title||!author||!file)return toast('أدخل العنوان واسم المؤلف واختر ملف PDF');if(file.type!=='application/pdf'&&!file.name.toLowerCase().endsWith('.pdf'))return toast('اختر ملف PDF صالحًا');if(file.size>80*1024*1024)return toast('حجم الملف كبير؛ الحد الأقصى 80 MB');try{const bytes=await file.arrayBuffer();if(!window.pdfjsLib)throw new Error('تعذر تحميل قارئ PDF؛ تحقق من اتصال الإنترنت');pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';const test=await pdfjsLib.getDocument({data:new Uint8Array(bytes.slice(0))}).promise;const pages=test.numPages;test.destroy();const id=Date.now();await storePdf(id,bytes);db.books.unshift({id,title,author,pages,date:new Date().toLocaleDateString('ar')});persist();$('bookTitle').value='';$('bookAuthor').value='';$('bookPdf').value='';toast('أُضيف الكتاب بنجاح · '+pages+' صفحة')}catch(e){console.error(e);toast('تعذر قراءة الملف. تأكد أنه PDF سليم وحاول مجددًا')}}
-let activePdf=null,activePdfPage=1,pdfRenderTask=null;
-async function openPdfBook(id){try{if(!window.pdfjsLib)throw new Error('PDF.js unavailable');const b=db.books.find(x=>x.id===id);if(!b)return;const bytes=await readPdf(id);if(!bytes)throw new Error('PDF file missing');pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';activePdf=await pdfjsLib.getDocument({data:new Uint8Array(bytes)}).promise;activePdfPage=1;$('readerTitle').textContent=b.title;$('readerAuthor').textContent=b.author+' · '+activePdf.numPages+' صفحة';$('pdfReader').style.display='block';await renderPdfPage();$('pdfReader').scrollIntoView({behavior:'smooth',block:'start'})}catch(e){console.error(e);toast('لم أجد ملف PDF لهذا الكتاب؛ أعد إضافته من جهازك')}}
-async function renderPdfPage(){if(!activePdf)return;setupPdfTouch();try{if(pdfRenderTask){pdfRenderTask.cancel();pdfRenderTask=null}const page=await activePdf.getPage(activePdfPage),canvas=$('pdfCanvas'),ctx=canvas.getContext('2d'),base=page.getViewport({scale:1}),available=Math.max(250,Math.min(window.innerWidth-54,760)),scale=Math.min(1.65,available/base.width),viewport=page.getViewport({scale});canvas.width=viewport.width;canvas.height=viewport.height;pdfRenderTask=page.render({canvasContext:ctx,viewport});await pdfRenderTask.promise;pdfRenderTask=null;$('pageStatus').textContent='صفحة '+activePdfPage+' من '+activePdf.numPages;$('prevPage').disabled=activePdfPage<=1;$('nextPage').disabled=activePdfPage>=activePdf.numPages}catch(e){if(e.name!=='RenderingCancelledException')console.error(e)}}
-function turnPage(delta){if(!activePdf)return;activePdfPage=Math.max(1,Math.min(activePdf.numPages,activePdfPage+delta));renderPdfPage()}
-let pdfTouchStart=null;
-function setupPdfTouch(){const stage=$('pdfCanvas');if(!stage||stage.dataset.touchReady)return;stage.dataset.touchReady='1';stage.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;pdfTouchStart={x:e.clientX,y:e.clientY,time:Date.now(),type:e.pointerType}}, {passive:true});stage.addEventListener('pointerup',e=>{if(!pdfTouchStart)return;const dx=e.clientX-pdfTouchStart.x,dy=e.clientY-pdfTouchStart.y,elapsed=Date.now()-pdfTouchStart.time;const width=stage.getBoundingClientRect().width;const start=pdfTouchStart;pdfTouchStart=null;if(Math.abs(dx)>48&&Math.abs(dx)>Math.abs(dy)*1.25&&elapsed<1200){turnPage(dx<0?1:-1);return}if(Math.abs(dx)<12&&Math.abs(dy)<12&&start.type==='touch'){const x=e.clientX-stage.getBoundingClientRect().left;if(x>width*.82)turnPage(1);else if(x<width*.18)turnPage(-1)}}, {passive:true});stage.addEventListener('pointercancel',()=>{pdfTouchStart=null},{passive:true})}
-
-function closePdfReader(){if(activePdf){activePdf.destroy();activePdf=null}$('pdfReader').style.display='none'}
-async function deletePdfBook(id){if(!confirm('حذف هذا الكتاب وملف PDF المحفوظ؟'))return;try{await erasePdf(id)}catch(e){}db.books=db.books.filter(x=>x.id!==id);persist();if(activePdf)closePdfReader()}
-function renderAll(){renderHome();$('logsList').innerHTML=list('logs');$('notesList').innerHTML=list('notes');renderBooks();renderCouncil();$('language').value=db.settings.language;$('speak').checked=!!db.settings.speak;$('showBrief').checked=db.settings.showBrief!==false}
-function exportData(){const a=document.createElement('a'),u=URL.createObjectURL(new Blob([JSON.stringify(db,null,2)],{type:'application/json'}));a.href=u;a.download='nox-private-luxury-backup.json';a.click();URL.revokeObjectURL(u);toast('تم تجهيز النسخة الاحتياطية')}
-function clearData(){if(!confirm('سيتم حذف بيانات NOX المحلية. هل تريد المتابعة؟'))return;localStorage.removeItem(KEY);location.reload()}
-renderAll();renderCatalogueShelves();renderCuratedNovels();
-</script></body></htmlfunction loadCatalogueShelf(id,page=1){if(catalogueBusy)return;const shelf=catalogueShelves.find(x=>x[0]===id);if(!shelf)return;activeCatalogue=id;cataloguePage=page;catalogueBusy=true;renderCatalogueShelves();$('catalogueStatus').textContent=shelf[1];$('catalogueHint').textContent='مجموعة مختارة من الفهرس · 20 كتابًا في الصفحة';$('catalogueResults').innerHTML='<div class="library-empty">جارٍ تجهيز الرف…</div>';fetch('https://openlibrary.org/search.json?q='+encodeURIComponent('subject:'+shelf[2])+'&limit=20&page='+page+'&fields=key,title,author_name,first_publish_year,cover_i').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{const items=d.docs||[];if(!items.length){$('catalogueResults').innerHTML='<div class="library-empty">لا توجد نتائج في هذا الرف حاليًا.</div>';return}$('catalogueResults').innerHTML=items.map(bookCard).join('');const pages=Math.max(1,Math.min(5,Math.ceil((d.numFound||items.length)/20)));$('cataloguePageLabel').textContent='صفحة '+page+' من '+pages;$('cataloguePrev').disabled=page<=1;$('catalogueNext').disabled=page>=pages}).catch(()=>$('catalogueResults').innerHTML='<div class="library-empty">تعذر الاتصال بـ Open Library. حاول مجددًا.</div>').finally(()=>catalogueBusy=false)}
-
-function changeCataloguePage(delta){if(!activeCatalogue||catalogueBusy)return;const p=cataloguePage+delta;if(p>=1&&p<=5)loadCatalogueShelf(activeCatalogue,p)}
-const curatedNovels=[
-["كبرياء وتحامل","جين أوستن"],
-["جين إير","شارلوت برونتي"],
-["مرتفعات وذرينغ","إميلي برونتي"],
-["فرانكنشتاين","ماري شيلي"],
-["دراكولا","برام ستوكر"],
-["كونت مونت كريستو","ألكسندر دوما"],
-["البؤساء","فيكتور هوغو"],
-["أحدب نوتردام","فيكتور هوغو"],
-["قصة مدينتين","تشارلز ديكنز"],
-["أوليفر تويست","تشارلز ديكنز"],
-["ديفيد كوبرفيلد","تشارلز ديكنز"],
-["آمال عظيمة","تشارلز ديكنز"],
-["موبي ديك","هرمان ملفيل"],
-["نساء صغيرات","لويزا ماي ألكوت"],
-["آن في المرتفعات الخضراء","لوسي مود مونتغمري"],
-["جزيرة الكنز","روبرت لويس ستيفنسون"],
-["مختطف","روبرت لويس ستيفنسون"],
-["روبنسون كروزو","دانيال ديفو"],
-["رحلات غوليفر","جوناثان سويفت"],
-["دون كيخوتة","ميغيل دي ثيربانتس"],
-["الحرب والسلام","ليو تولستوي"],
-["آنا كارنينا","ليو تولستوي"],
-["الجريمة والعقاب","فيودور دوستويفسكي"],
-["الإخوة كارامازوف","فيودور دوستويفسكي"],
-["الأبله","فيودور دوستويفسكي"],
-["الآباء والبنون","إيفان تورغينيف"],
-["الأرواح الميتة","نيقولاي غوغول"],
-["المعلم ومارغريتا","ميخائيل بولغاكوف"],
-["1984","جورج أورويل"],
-["مزرعة الحيوان","جورج أورويل"],
-["عالم جديد شجاع","ألدوس هكسلي"],
-["فهرنهايت 451","راي برادبري"],
-["أن تقتل طائرًا بريئًا","هاربر لي"],
-["الحارس في حقل الشوفان","ج. د. سالنجر"],
-["سيد الخواتم","ج. ر. ر. تولكين"],
-["الهوبيت","ج. ر. ر. تولكين"],
-["كثيب","فرانك هربرت"],
-["ساحر الأرض","أورسولا لو غوين"],
-["الأسد والساحرة وخزانة الملابس","سي. إس. لويس"],
-["أليس في بلاد العجائب","لويس كارول"],
-["عبر المرآة","لويس كارول"],
-["الحديقة السرية","فرانسيس هودجسون برنيت"],
-["هايدي","يوهانا شبيري"],
-["الجمال الأسود","آنا سويل"],
-["نداء البرية","جاك لندن"],
-["الناب الأبيض","جاك لندن"],
-["كتاب الأدغال","روديارد كبلنغ"],
-["قلب الظلام","جوزيف كونراد"],
-["حول العالم في ثمانين يومًا","جول فيرن"],
-["عشرون ألف فرسخ تحت البحر","جول فيرن"],
-["رحلة إلى مركز الأرض","جول فيرن"],
-["آلة الزمن","هـ. ج. ويلز"],
-["الرجل الخفي","هـ. ج. ويلز"],
-["حرب العوالم","هـ. ج. ويلز"],
-["جزيرة الدكتور مورو","هـ. ج. ويلز"],
-["صورة دوريان غراي","أوسكار وايلد"],
-["الحرف القرمزي","ناثانيال هوثورن"],
-["مغامرات هاكلبيري فين","مارك توين"],
-["مغامرات توم سوير","مارك توين"],
-["عصر البراءة","إديث وارتون"],
-["بيت المرح","إديث وارتون"],
-["غاتسبي العظيم","ف. سكوت فيتزجيرالد"],
-["الشمس تشرق أيضًا","إرنست همنغواي"],
-["العجوز والبحر","إرنست همنغواي"],
-["لمن تقرع الأجراس","إرنست همنغواي"],
-["فئران ورجال","جون شتاينبك"],
-["عناقيد الغضب","جون شتاينبك"],
-["شرق عدن","جون شتاينبك"],
-["ريبيكا","دافني دو مورييه"],
-["ثم لم يبق أحد","أغاثا كريستي"],
-["جريمة في قطار الشرق السريع","أغاثا كريستي"],
-["دراسة في اللون القرمزي","آرثر كونان دويل"],
-["كلب آل باسكرفيل","آرثر كونان دويل"],
-["اسم الوردة","أمبرتو إيكو"],
-["الأمير الصغير","أنطوان دو سانت إكزوبيري"],
-["الغريب","ألبير كامو"],
-["الطاعون","ألبير كامو"],
-["مدام بوفاري","غوستاف فلوبير"],
-["الأحمر والأسود","ستاندال"],
-["الأم","مكسيم غوركي"],
-["الدون الهادئ","ميخائيل شولوخوف"],
-["موسم الهجرة إلى الشمال","الطيب صالح"],
-["زقاق المدق","نجيب محفوظ"],
-["بين القصرين","نجيب محفوظ"],
-["قصر الشوق","نجيب محفوظ"],
-["السكرية","نجيب محفوظ"],
-["أولاد حارتنا","نجيب محفوظ"],
-["اللص والكلاب","نجيب محفوظ"],
-["ميرامار","نجيب محفوظ"],
-["بداية ونهاية","نجيب محفوظ"],
-["رجال في الشمس","غسان كنفاني"],
-["عائد إلى حيفا","غسان كنفاني"],
-["مدن الملح","عبد الرحمن منيف"],
-["شرق المتوسط","عبد الرحمن منيف"],
-["ذاكرة الجسد","أحلام مستغانمي"],
-["فوضى الحواس","أحلام مستغانمي"],
-["الأسود يليق بك","أحلام مستغانمي"],
-["ساق البامبو","سعود السنعوسي"],
-["فرانكشتاين في بغداد","أحمد سعداوي"],
-["عزازيل","يوسف زيدان"]
-];
-function renderCuratedNovels(){const el=$('curatedNovels');if(!el)return;const q=($('novelFilter')?.value||'').trim().toLocaleLowerCase();const rows=curatedNovels.filter(x=>(x[0]+' '+x[1]).toLocaleLowerCase().includes(q));el.innerHTML=rows.map(x=>'<article class="novel-item"><b>'+esc(x[0])+'</b><small>'+esc(x[1])+'</small><a target="_blank" rel="noopener" href="https://openlibrary.org/search?q='+encodeURIComponent(x[0]+' '+x[1])+'">ابحث عن النسخة ↗</a></article>').join('')||'<div class="empty">لا توجد روايات مطابقة.</div>'}
 
 function searchOnlineAudio(){
  const q=$('onlineAudioQuery').value.trim();if(!q)return toast('اكتب عنوان كتاب صوتي أو اسم مؤلف');
