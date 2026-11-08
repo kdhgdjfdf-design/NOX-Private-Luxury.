@@ -318,14 +318,14 @@ function setDiscoverTab(tab){
 let onlineBookPage=1,onlineBookQueryValue='';
 function searchOnlineBooks(page=1){const q=$('onlineBookQuery').value.trim();if(!q)return toast('اكتب عنوانًا أو اسم مؤلف');onlineBookQueryValue=q;onlineBookPage=page;activeCatalogue=null;renderCatalogueShelves();$('catalogueStatus').textContent='نتائج البحث';$('catalogueHint').textContent='نتائج من فهرس Open Library';const out=$('catalogueResults');out.innerHTML='<div class="library-empty">جارٍ البحث في الفهرس…</div>';fetch('https://openlibrary.org/search.json?q='+encodeURIComponent(q)+'&limit=20&page='+page+'&fields=key,title,author_name,first_publish_year,cover_i').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{if(onlineBookQueryValue!==q||onlineBookPage!==page)return;const items=d.docs||[];if(!items.length){out.innerHTML='<div class="library-empty">لم نعثر على نتائج. جرّب كلمات أخرى.</div>';return}out.innerHTML=items.map(bookCard).join('');const pages=Math.max(1,Math.min(5,Math.ceil((d.numFound||items.length)/20)));$('cataloguePageLabel').textContent='صفحة '+page+' من '+pages;$('cataloguePrev').disabled=page<=1;$('catalogueNext').disabled=page>=pages}).catch(()=>{out.innerHTML='<div class="library-empty">تعذر الاتصال بالفهرس الآن. حاول مرة أخرى.</div>'})}
 
-function changeOnlineBookPage(delta){searchOnlineBooks(Math.max(1,onlineBookPage+delta))}
+function changeOnlineBookPage(delta){searchOnlineBooks(Math.max(1,Math.min(5,onlineBookPage+delta)))}
 
 const catalogueShelves=[['literature','الأدب العالمي','fiction'],['arabic','الأدب العربي','arabic literature'],['history','التاريخ والحضارات','history'],['philosophy','الفلسفة والفكر','philosophy'],['science','العلوم والطبيعة','science'],['psychology','علم النفس','psychology'],['biography','السير والتراجم','biography'],['business','الاقتصاد والإدارة','business'],['poetry','الشعر والمسرح','poetry'],['education','التعليم والمعرفة','education']];
 let activeCatalogue=null,cataloguePage=1,catalogueBusy=false;
 function renderCatalogueShelves(){const el=$('catalogueShelves');if(el)el.innerHTML=catalogueShelves.map(x=>'<button class="'+(activeCatalogue===x[0]?'active':'')+'" onclick="loadCatalogueShelf(\''+x[0]+'\',1)">'+esc(x[1])+'</button>').join('')}
 function bookCard(x){const title=x.title||'عنوان غير متاح',author=(x.author_name||['مؤلف غير محدد']).slice(0,2).join('،'),cover=x.cover_i?'https://covers.openlibrary.org/b/id/'+x.cover_i+'-M.jpg':'',key=x.key||'';const initials=esc(title.trim().slice(0,2));return '<article class="library-book-card"><div class="library-cover">'+(cover?'<img loading="lazy" src="'+cover+'" alt="" onerror="this.remove()">':initials)+'</div><b>'+esc(title)+'</b><small>'+esc(author)+(x.first_publish_year?' · '+x.first_publish_year:'')+'</small><a target="_blank" rel="noopener" href="https://openlibrary.org'+encodeURI(key)+'">تفاصيل الكتاب ↗</a></article>'}
 
-function changeCataloguePage(delta){if(!activeCatalogue||catalogueBusy)return;const p=cataloguePage+delta;if(p>=1&&p<=5)loadCatalogueShelf(activeCatalogue,p)}
+function changeCataloguePage(delta){if(catalogueBusy)return;if(!activeCatalogue){const p=onlineBookPage+delta;if(p>=1&&p<=5)searchOnlineBooks(p);return}const p=cataloguePage+delta;if(p>=1&&p<=5)loadCatalogueShelf(activeCatalogue,p)}
 const curatedNovels=[
 ["كبرياء وتحامل","جين أوستن"],
 ["جين إير","شارلوت برونتي"],
