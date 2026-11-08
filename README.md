@@ -14,8 +14,8 @@ Included:
 - Daily priorities with completion checkboxes
 - A simple daily schedule with time-sorted entries
 - Daily log for study, reading, podcasts, skills, and personal time
-- Notes with separate original and corrected text
-- Personal library for books, podcasts, articles, videos, and resources
+- Notes with separate original and corrected text, search, and editing
+- Personal library for books, podcasts, articles, videos, and resources, with search, type filters, and editing
 - Demo assistant directory (clearly labeled as informational cards, not connected AI)
 - Local data export and clear-data controls
 
