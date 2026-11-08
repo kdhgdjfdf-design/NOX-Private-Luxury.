@@ -11,6 +11,31 @@
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% -10%,#30291d 0,transparent 38%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}button,input,textarea{font:inherit}button{cursor:pointer}
 .app{max-width:1080px;margin:auto;padding:22px 18px 100px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 2px 26px}.brand{display:flex;align-items:center;gap:12px}.mark{width:42px;height:42px;border:1px solid #8c7447;border-radius:14px;display:grid;place-items:center;color:var(--gold2);font-family:Georgia,serif;font-size:23px}.brand h1{font-size:15px;letter-spacing:2px;margin:0}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:1.7px;margin-top:4px}.top-date{color:var(--muted);font-size:12px;text-align:left}.hero{padding:28px 26px;border:1px solid #55472e;border-radius:26px;background:linear-gradient(120deg,#242017,#171715 65%);position:relative;overflow:hidden}.hero:after{content:"N";position:absolute;left:22px;top:-42px;font:190px Georgia,serif;color:#c8a96b0b}.eyebrow{color:var(--gold2);font-size:11px;letter-spacing:1.5px}.hero h2{font:clamp(25px,5vw,38px) Georgia,serif;font-weight:400;margin:13px 0 8px;direction:ltr;text-align:right}.hero p{color:#c5c0b5;margin:0;line-height:1.9;font-size:14px;max-width:580px}.hero-actions{display:flex;gap:9px;margin-top:22px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#242424;color:var(--text);padding:10px 15px;border-radius:12px;font-size:12px}.btn.primary{background:var(--gold);color:#17130c;border-color:var(--gold);font-weight:650}.section-head{display:flex;align-items:end;justify-content:space-between;margin:30px 2px 13px}.section-head h3{font-size:15px;margin:0;font-weight:600}.section-head span{font-size:11px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.tile,.panel{background:linear-gradient(145deg,#1d1d1b,#171717);border:1px solid var(--line);border-radius:var(--radius);padding:17px}.tile{min-height:130px;text-align:right;color:inherit;transition:.2s}.tile:active{transform:scale(.985)}.tile .ico{width:34px;height:34px;border-radius:11px;background:#302a20;color:var(--gold2);display:grid;place-items:center;margin-bottom:14px;font-size:16px}.tile b{font-size:13px;display:block}.tile small{color:var(--muted);font-size:11px;display:block;margin-top:6px;line-height:1.6}.panel{margin-top:12px}.panel-title{font-size:13px;margin:0 0 12px}.muted{color:var(--muted);font-size:12px;line-height:1.8}.quick{display:flex;gap:8px;flex-wrap:wrap}.quick .btn{flex:1;min-width:120px}.view{display:none}.view.active{display:block}.back{margin-bottom:17px}.field{width:100%;background:#111;border:1px solid var(--line);border-radius:12px;color:var(--text);padding:12px;outline:none;margin:7px 0}.field:focus{border-color:#92794c}textarea.field{min-height:130px;resize:vertical}.item{padding:13px 0;border-bottom:1px solid var(--line)}.item:last-child{border:0}.item b{font-size:13px}.item p{margin:5px 0 0;color:var(--muted);font-size:12px;white-space:pre-wrap}.item-actions{display:flex;gap:7px;margin-top:8px}.tiny{font-size:10px;padding:6px 9px}.empty{padding:22px;text-align:center;color:var(--muted);font-size:12px}.assistant{border:1px solid var(--line);padding:14px;border-radius:14px;margin:9px 0}.assistant strong{font-size:13px}.assistant p{font-size:11px;color:var(--muted);line-height:1.7;margin:6px 0 0}.nav{position:fixed;bottom:0;left:0;right:0;z-index:5;background:#111e;border-top:1px solid var(--line);backdrop-filter:blur(16px);display:flex;justify-content:center;padding:10px 8px calc(10px + env(safe-area-inset-bottom));gap:4px}.nav button{border:0;background:transparent;color:var(--muted);padding:8px 12px;border-radius:12px;font-size:11px}.nav button.active{color:var(--gold2);background:#c8a96b18}.toast{position:fixed;top:18px;left:50%;transform:translateX(-50%);background:#2b281f;border:1px solid #655437;padding:10px 16px;border-radius:12px;font-size:12px;display:none;z-index:9}.gold{color:var(--gold2)}footer{text-align:center;color:#77736a;font-size:10px;margin-top:30px;letter-spacing:.5px}
 .planner{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.planner .panel{margin:0}.planner h3{font-size:13px;margin:0 0 12px}.planner-form{display:flex;gap:7px}.planner-form .field{min-width:0;margin:0}.task-row,.event-row{display:flex;align-items:center;gap:9px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}.task-row:last-child,.event-row:last-child{border:0}.task-row input{accent-color:var(--gold);width:16px;height:16px}.task-row.done span{text-decoration:line-through;color:var(--muted)}.event-time{color:var(--gold2);font-variant-numeric:tabular-nums;min-width:48px}.mini-remove{margin-right:auto;border:0;background:none;color:#8f887a;font-size:15px;padding:2px 6px}@media(max-width:650px){.planner{grid-template-columns:1fr}}@media(max-width:650px){.app{padding:14px 13px 100px}.top{padding-bottom:18px}.hero{padding:23px 19px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.tile{padding:14px;min-height:120px}.nav button{padding:8px 9px;font-size:10px}.top-date{font-size:10px}}
+
+/* NOX concierge home */
+.concierge{padding:28px 24px 24px;background:linear-gradient(145deg,#211d16,#151514 72%);border:1px solid #5a4930;border-radius:25px;position:relative;overflow:hidden}
+.concierge:before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:linear-gradient(transparent,var(--gold),transparent);opacity:.65}
+.concierge h2{font-size:clamp(27px,5vw,38px);font-weight:500;margin:12px 0 10px;letter-spacing:-.5px}
+.concierge p{font-size:14px;line-height:2.05;color:#ded7c9;margin:8px 0}
+.concierge .weather-line{display:flex;align-items:center;gap:9px;color:var(--gold2);font-size:13px;margin-top:8px}
+.inline-icon{display:inline-grid;place-items:center;vertical-align:middle;width:27px;height:27px;margin:0 3px;border:1px solid #725d3b;border-radius:50%;background:#2a241a;color:var(--gold2);font-size:13px}
+.inline-icon:active{transform:scale(.94)}
+.concierge-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.concierge-link{border:1px solid #59482e;border-radius:999px;background:#211d16;color:var(--gold2);padding:8px 13px;font-size:11px}
+.concierge-link:hover{background:#302719}
+.concierge-detail{margin:9px 0 0;padding:12px 15px;border-right:2px solid var(--gold);background:#1a1916;border-radius:10px;color:#d9d1c3;font-size:12px;line-height:1.9}
+.concierge-detail[hidden]{display:none}
+.concierge-editor{margin-top:14px;border:1px solid var(--line);border-radius:17px;padding:14px;background:#171715}
+.concierge-editor summary{cursor:pointer;color:var(--gold2);font-size:12px;list-style:none}
+.concierge-editor summary::-webkit-details-marker{display:none}
+.concierge-editor summary:after{content:"＋";float:left}
+.concierge-editor[open] summary:after{content:"−"}
+.editor-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:12px}
+.editor-grid .field{margin:0;min-width:0}
+.editor-wide{grid-column:1/-1}
+.home-nav-hint{color:#827d73;font-size:10px;text-align:center;margin:18px 0 4px}
+@media(max-width:600px){.concierge{padding:23px 18px}.editor-grid{grid-template-columns:1fr}.editor-wide{grid-column:auto}.concierge p{font-size:13px}}
+
 </style>
 </head>
 <body>
@@ -18,11 +43,50 @@
 <header class="top"><div class="brand"><div class="mark">N</div><div><h1>NOX</h1><small>PRIVATE LUXURY</small></div></div><div class="top-date" id="today"></div></header>
 <main>
 <section class="view active" id="home">
-<div class="hero"><div class="eyebrow">YOUR PRIVATE SPACE</div><h2>A quieter kind of luxury.</h2><p>مساحتك الخاصة لترتيب أفكارك، متابعة ما تحبه، وتطوير حياتك بطريقتك. بلا ضغط، وبلا جمهور.</p><div class="hero-actions"><button class="btn primary" onclick="showView('log')">سجّل لحظة من يومك</button><button class="btn" onclick="showView('notes')">افتح ملاحظاتك</button></div></div>
-<div class="planner">
-<div class="panel"><h3>أولويات اليوم <span class="muted" id="taskProgress"></span></h3><div class="planner-form"><input id="taskInput" class="field" placeholder="شيء تريد إنجازه..." maxlength="90"><button class="btn primary" onclick="addTask()">+</button></div><div id="taskList"></div></div>
-<div class="panel"><h3>مواعيد اليوم</h3><div class="planner-form"><input id="eventTime" class="field" type="time" aria-label="وقت الموعد" style="max-width:105px"><input id="eventTitle" class="field" placeholder="موعد أو نشاط..." maxlength="90"><button class="btn primary" onclick="addEvent()">+</button></div><div id="eventList"></div></div>
-</div><div class="section-head"><h3>مساحتك</h3><span>اختر ما تحتاجه الآن</span></div>
+<div class="concierge">
+  <div class="eyebrow">NOX · PRIVATE LUXURY</div>
+  <h2 id="conciergeGreeting">مساء الخير، سيدي.</h2>
+  <div class="weather-line"><span id="weatherSummary">لم تُضف معلومات الطقس بعد.</span><button class="inline-icon" onclick="toggleDetail('weatherDetail')" aria-label="تفاصيل الطقس">☼</button></div>
+  <div class="concierge-detail" id="weatherDetail" hidden><b class="gold">أجواء اليوم</b><p id="weatherMore">يمكنك إضافة حالة الطقس يدويًا الآن. التحديث التلقائي للطقس يحتاج ربط خدمة طقس لاحقًا؛ لن يعرض NOX توقعات غير مؤكدة.</p></div>
+  <p id="appointmentNarrative">يومك يبدأ على طريقتك. عندما تضيف مواعيدك واختياراتك، سأرتبها لك هنا في سياق واحد.</p>
+  <div id="outfitNarrative"></div>
+  <div id="conversationNarrative"></div>
+  <div id="readingNarrative"></div>
+  <div id="podcastNarrative"></div>
+  <div id="assistantNarrative"></div>
+  <div class="concierge-actions">
+    <button class="concierge-link" onclick="showView('log')">＋ سجّل لحظة</button>
+    <button class="concierge-link" onclick="showView('library')">مكتبتي</button>
+    <button class="concierge-link" onclick="showView('assistants')">مجلس المساعدين</button>
+  </div>
+</div>
+<details class="concierge-editor" id="conciergeEditor">
+  <summary>إدارة تفاصيل يومك وذاكرتك الشخصية</summary>
+  <div class="muted" style="margin-top:9px">أدخل التفاصيل مرة واحدة وعدّلها متى تغيّرت. ستظهر في رسالة NOX بدل أن تبحث عنها داخل أقسام كثيرة.</div>
+  <div class="editor-grid">
+    <input id="weatherInput" class="field" placeholder="الطقس ودرجة الحرارة (اختياري)">
+    <input id="weatherExtra" class="field" placeholder="تفاصيل الطقس">
+    <input id="appointmentInput" class="field" placeholder="موعدك أو خطتك">
+    <input id="appointmentTimeInput" class="field" placeholder="الوقت مثل 17:30">
+    <input id="clothesInput" class="field" placeholder="الملابس التي اخترتها">
+    <input id="clothesPlaceInput" class="field" placeholder="أين وضعتها؟">
+    <input id="fragranceInput" class="field" placeholder="العطر المختار">
+    <input id="fragrancePlaceInput" class="field" placeholder="أين وضعته؟">
+    <input id="hairInput" class="field" placeholder="التسريحة المختارة">
+    <input id="hairPlaceInput" class="field" placeholder="تفاصيل أو مكان أدواتها">
+    <input id="conversationInput" class="field editor-wide" placeholder="موضوع المحادثة أو المناسبة">
+    <input id="conversationGuideInput" class="field editor-wide" placeholder="عبارات أو دليل المحادثة المحفوظ">
+    <input id="readingInput" class="field" placeholder="اسم الكتاب">
+    <input id="readingPageInput" class="field" placeholder="رقم الصفحة">
+    <textarea id="readingQuoteInput" class="field editor-wide" rows="2" placeholder="الجملة أو الموضع الذي توقفت عنده"></textarea>
+    <input id="podcastInput" class="field" placeholder="اسم البودكاست أو الحلقة">
+    <input id="podcastMinuteInput" class="field" placeholder="الدقيقة التي وصلت إليها">
+    <input id="assistantRequestInput" class="field editor-wide" placeholder="طلب سابق من المساعد تريد تذكره">
+    <input id="assistantDetailsInput" class="field editor-wide" placeholder="الموضوع أو التفاصيل التي طلبت جمعها">
+  </div>
+  <button class="btn primary" style="margin-top:11px" onclick="saveConcierge()">حفظ تفاصيلك</button>
+</details>
+<div class="section-head"><h3>مساحتك</h3><span>بقية NOX بين يديك</span></div>
 <div class="grid">
 <button class="tile" onclick="showView('log')"><span class="ico">◷</span><b>السجل اليومي</b><small>احتفظ بلحظاتك وما أنجزته.</small></button>
 <button class="tile" onclick="showView('notes')"><span class="ico">✎</span><b>الملاحظات</b><small>أفكارك، دروسك، ومسوداتك.</small></button>
@@ -65,7 +129,13 @@ function listHtml(group,query='',filter=''){const items=data[group].filter(x=>[x
 function removeNote(id){removeItem('notes',id)}
 function removeBook(id){removeItem('books',id)}
 function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function render(){renderPlanner();$('logsList').innerHTML=listHtml('logs');const nq=$('notesSearch')?$('notesSearch').value.trim():'';const bq=$('booksSearch')?$('booksSearch').value.trim():'';const bf=$('booksFilter')?$('booksFilter').value:'';$('notesList').innerHTML=listHtml('notes',nq);$('booksList').innerHTML=listHtml('books',bq,bf);if($('notesSummary'))$('notesSummary').textContent=data.notes.length+' ملاحظة محفوظة';if($('booksSummary'))$('booksSummary').textContent=data.books.length+' عناصر في المكتبة';$('logCount').textContent=data.logs.length;$('noteCount').textContent=data.notes.length;$('bookCount').textContent=data.books.length}
+
+function toggleDetail(id){const el=$(id);if(el)el.hidden=!el.hidden}
+function saveConcierge(){data.profile={weather:$('weatherInput').value.trim(),weatherExtra:$('weatherExtra').value.trim(),appointment:$('appointmentInput').value.trim(),appointmentTime:$('appointmentTimeInput').value.trim(),clothes:$('clothesInput').value.trim(),clothesPlace:$('clothesPlaceInput').value.trim(),fragrance:$('fragranceInput').value.trim(),fragrancePlace:$('fragrancePlaceInput').value.trim(),hair:$('hairInput').value.trim(),hairPlace:$('hairPlaceInput').value.trim(),conversation:$('conversationInput').value.trim(),conversationGuide:$('conversationGuideInput').value.trim(),reading:$('readingInput').value.trim(),readingPage:$('readingPageInput').value.trim(),readingQuote:$('readingQuoteInput').value.trim(),podcast:$('podcastInput').value.trim(),podcastMinute:$('podcastMinuteInput').value.trim(),assistantRequest:$('assistantRequestInput').value.trim(),assistantDetails:$('assistantDetailsInput').value.trim()};save();toast('حُفظت تفاصيل مساحتك')}
+function loadConciergeEditor(){const p=data.profile||{};const fields={weather:'weatherInput',weatherExtra:'weatherExtra',appointment:'appointmentInput',appointmentTime:'appointmentTimeInput',clothes:'clothesInput',clothesPlace:'clothesPlaceInput',fragrance:'fragranceInput',fragrancePlace:'fragrancePlaceInput',hair:'hairInput',hairPlace:'hairPlaceInput',conversation:'conversationInput',conversationGuide:'conversationGuideInput',reading:'readingInput',readingPage:'readingPageInput',readingQuote:'readingQuoteInput',podcast:'podcastInput',podcastMinute:'podcastMinuteInput',assistantRequest:'assistantRequestInput',assistantDetails:'assistantDetailsInput'};Object.entries(fields).forEach(([k,id])=>{if($(id))$(id).value=p[k]||''})}
+function renderConcierge(){const p=data.profile||{};const h=new Date().getHours();$('conciergeGreeting').textContent=(h<12?'صباح الخير':h<18?'طاب مساؤك':'مساء الخير')+'، سيدي.';$('weatherSummary').textContent=p.weather||'لم تُضف معلومات الطقس بعد.';$('weatherMore').textContent=[p.weather,p.weatherExtra].filter(Boolean).join(' · ')||'يمكنك إضافة حالة الطقس يدويًا الآن. التحديث التلقائي للطقس يحتاج ربط خدمة طقس لاحقًا؛ لن يعرض NOX توقعات غير مؤكدة.';const ev=data.events.slice().sort((a,b)=>a.time.localeCompare(b.time)).find(e=>e.time>=new Date().toTimeString().slice(0,5))||data.events[0];const ap=p.appointment||ev?.title||'';const tm=p.appointmentTime||ev?.time||'';$('appointmentNarrative').textContent=ap?('تنوي '+(tm?'الذهاب إلى ':'')+ap+(tm?' في الساعة '+tm:'')+'.'): 'يومك يبدأ على طريقتك. عندما تضيف مواعيدك واختياراتك، سأرتبها لك هنا في سياق واحد.';const outfit=[p.clothes?'الملابس التي اخترتها: '+p.clothes+(p.clothesPlace?'، ووضعتها في '+p.clothesPlace:''):'',p.fragrance?'العطر: '+p.fragrance+(p.fragrancePlace?'، ومكانه '+p.fragrancePlace:''):'',p.hair?'التسريحة: '+p.hair+(p.hairPlace?'، '+p.hairPlace:''):''].filter(Boolean).join(' · ');$('outfitNarrative').innerHTML=outfit?'<p>'+esc(outfit)+' <button class="inline-icon" onclick="toggleDetail(\'outfitDetail\')" aria-label="تفاصيل الإطلالة">⌄</button></p><div class="concierge-detail" id="outfitDetail" hidden>'+esc(outfit)+'</div>':'';$('conversationNarrative').innerHTML=p.conversation?'<p>وبخصوص '+esc(p.conversation)+'، تريد التحدث بوقار ورسمية. <button class="inline-icon" onclick="toggleDetail(\'conversationDetail\')" aria-label="فتح دليل المحادثة">☷</button></p><div class="concierge-detail" id="conversationDetail" hidden>'+esc(p.conversationGuide||'لم تحفظ عبارات لهذا الموضوع بعد.')+'</div>':'';$('readingNarrative').innerHTML=p.reading?'<p>كتابك الحالي «'+esc(p.reading)+'»؛ توقفت عند الصفحة '+esc(p.readingPage||'التي حددتها')+(p.readingQuote?'، عند: «'+esc(p.readingQuote)+'»':'')+'.</p>':'';$('podcastNarrative').innerHTML=p.podcast?'<p>وتتابع «'+esc(p.podcast)+'»؛ وصلت إلى الدقيقة '+esc(p.podcastMinute||'التي سجلتها')+'.</p>':'';$('assistantNarrative').innerHTML=p.assistantRequest?'<p>وقد طلبت مني سابقًا '+esc(p.assistantRequest)+(p.assistantDetails?' حول «'+esc(p.assistantDetails)+'»':'')+'. <button class="inline-icon" onclick="toggleDetail(\'assistantDetail\')" aria-label="تفاصيل الطلب">✧</button></p><div class="concierge-detail" id="assistantDetail" hidden>'+esc(p.assistantDetails||p.assistantRequest)+'</div>':'';loadConciergeEditor()}
+
+function render(){renderConcierge();renderPlanner();$('logsList').innerHTML=listHtml('logs');const nq=$('notesSearch')?$('notesSearch').value.trim():'';const bq=$('booksSearch')?$('booksSearch').value.trim():'';const bf=$('booksFilter')?$('booksFilter').value:'';$('notesList').innerHTML=listHtml('notes',nq);$('booksList').innerHTML=listHtml('books',bq,bf);if($('notesSummary'))$('notesSummary').textContent=data.notes.length+' ملاحظة محفوظة';if($('booksSummary'))$('booksSummary').textContent=data.books.length+' عناصر في المكتبة';$('logCount').textContent=data.logs.length;$('noteCount').textContent=data.notes.length;$('bookCount').textContent=data.books.length}
 function exportData(){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='nox-private-luxury-backup.json';a.click();URL.revokeObjectURL(a.href);toast('تم تجهيز نسخة بياناتك')}
 function clearData(){if(!confirm('سيتم حذف كل السجل والملاحظات والمكتبة من هذا الجهاز. هل أنت متأكد؟'))return;data={logs:[],notes:[],books:[],tasks:[],events:[]};save();toast('تم مسح البيانات')}
 $('today').textContent=new Date().toLocaleDateString('ar',{weekday:'long',day:'numeric',month:'long'});render();
