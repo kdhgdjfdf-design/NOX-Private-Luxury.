@@ -167,6 +167,41 @@ body{background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,syst
 
 /* NOX private offices and boardroom */
 .office-intro{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:25px 30px;margin:18px 0 16px;border:1px solid #5a4529;border-radius:20px;background:radial-gradient(circle at 12% 40%,#47351d 0,transparent 34%),linear-gradient(120deg,#211a11,#15120e)}.office-intro h2{font:clamp(23px,3vw,32px) Georgia,serif;font-weight:400;margin:9px 0}.office-intro p{color:var(--muted);font-size:11px;margin:0;line-height:1.8}.office-seal{width:62px;height:62px;border:1px solid #8b6d40;border-radius:50%;display:grid;place-items:center;color:var(--gold2);font:30px Georgia;box-shadow:0 0 35px #b18a4930}.office-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}.office-card{min-width:0;text-align:right;display:flex;flex-direction:column;align-items:flex-start;gap:9px;padding:17px;border:1px solid #493923;border-radius:16px;background:linear-gradient(145deg,#211b13,#15120e);transition:transform .22s,border-color .22s,background .22s}.office-card:hover{transform:translateY(-3px);border-color:#a4824e;background:linear-gradient(145deg,#302416,#17130e)}.office-card.selected{border-color:#b08a51;box-shadow:inset 0 0 0 1px #b08a5130}.office-icon{width:37px;height:37px;display:grid;place-items:center;border:1px solid #6b5231;border-radius:12px;color:var(--gold2);font-size:19px}.office-room{font-size:9px;color:#b99a69;letter-spacing:.4px}.office-card b{font-size:15px;color:#f0e4d2}.office-card small{font-size:10px;color:var(--muted);line-height:1.7;min-height:34px}.office-enter{font-size:10px;color:var(--gold2);margin-top:3px}.meeting-room{display:flex;align-items:center;gap:17px;margin:18px 0 22px;padding:20px 22px;border:1px solid #665033;border-radius:18px;background:linear-gradient(110deg,#302416,#19150f)}.meeting-emblem{width:48px;height:48px;flex:0 0 48px;display:grid;place-items:center;border:1px solid #80633b;border-radius:50%;font-size:22px;color:var(--gold2)}.meeting-copy{flex:1;min-width:0}.meeting-copy h3{font:22px Georgia,serif;font-weight:400;margin:5px 0}.meeting-copy p{font-size:10px;color:var(--muted);line-height:1.8;margin:0}.meeting-overlay{display:none}.meeting-overlay.open{display:block}.meeting-backdrop{position:fixed;inset:0;z-index:60;background:#000b;backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:16px}.meeting-dialog{width:min(100%,560px);max-height:90vh;overflow:auto;background:#19150f;border:1px solid #705535;border-radius:22px;padding:22px;box-shadow:0 22px 80px #000c}.meeting-dialog-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.meeting-dialog h3{font:25px Georgia,serif;font-weight:400;margin:7px 0}.meeting-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:10px 0 16px}.meeting-choice{display:flex;align-items:center;gap:9px;padding:11px;border:1px solid #493923;border-radius:12px;background:#211b13}.meeting-choice input{accent-color:#c9a36b}.meeting-choice span{display:flex;flex-direction:column;gap:4px}.meeting-choice b{font-size:11px}.meeting-choice small{font-size:9px;color:var(--muted);line-height:1.5}.meeting-dialog .field{margin:7px 0 13px}.meeting-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px}.meeting-disclaimer{font-size:9px;color:#a99a85;line-height:1.8;margin:13px 0 0}@media(max-width:900px){.office-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.office-intro{padding:21px 18px}.office-seal{width:48px;height:48px;flex:0 0 48px}.office-grid{gap:8px}.office-card{padding:13px;gap:7px}.office-card small{font-size:9px}.meeting-room{align-items:flex-start;flex-wrap:wrap;padding:17px}.meeting-room .btn{width:100%}.meeting-choices{grid-template-columns:1fr}.meeting-dialog{padding:17px}}
+
+/* NOX — a little art, color and warmth */
+:root{--accent-teal:#78aaa4;--accent-blue:#829ac5;--accent-plum:#aa89b7;--accent-rose:#c78388;--accent-sage:#9eae8c;--accent-amber:#d2a46e}
+body{background:radial-gradient(ellipse at 82% -12%,rgba(119,91,139,.20),transparent 34%),radial-gradient(ellipse at 8% 28%,rgba(63,119,119,.13),transparent 30%),radial-gradient(ellipse at 90% 82%,rgba(150,91,95,.10),transparent 28%),var(--bg)}
+.brand .sigil{border-color:#8c779c;color:#d0b7df;background:linear-gradient(145deg,#382b42,#172e31)}
+.nav button.active,.nav button:hover{background:linear-gradient(100deg,rgba(115,91,139,.22),rgba(76,125,119,.13));box-shadow:inset -2px 0 #9c83b0}
+.nav button .ico{color:#a991bc}
+.welcome,.concierge-hero{background:linear-gradient(118deg,rgba(43,35,53,.97),rgba(27,43,43,.95) 55%,rgba(43,31,27,.96))!important;border-color:#66566e!important}
+.eyebrow,.library-kicker{color:#c4a7cf!important}
+.tile:nth-child(4n+1) .ico{background:rgba(116,157,151,.19);color:#9ac7bf}
+.tile:nth-child(4n+2) .ico{background:rgba(142,119,174,.20);color:#c1a5d6}
+.tile:nth-child(4n+3) .ico{background:rgba(190,128,133,.18);color:#dfa0a4}
+.tile:nth-child(4n) .ico{background:rgba(123,148,190,.20);color:#a8bee5}
+.tile,.panel{background:linear-gradient(145deg,rgba(36,34,43,.96),rgba(23,25,27,.98));border-color:#49414f}
+.btn.primary{background:linear-gradient(120deg,#c5a0cc,#8bb8ad)!important;border-color:#b69bc2!important;color:#17131b!important}
+.btn{border-color:#51475a}
+.office-card{background:linear-gradient(145deg,#272331,#172525);border-color:#4d4659}
+.office-card:nth-child(4n+1) .office-icon{color:#a9d1c9;border-color:#527c76;background:#29403e}
+.office-card:nth-child(4n+2) .office-icon{color:#d0b1dc;border-color:#765d82;background:#392d42}
+.office-card:nth-child(4n+3) .office-icon{color:#e2a8a9;border-color:#80565d;background:#432d34}
+.office-card:nth-child(4n) .office-icon{color:#b2c5ed;border-color:#566a8d;background:#29364b}
+.office-card:hover{border-color:#a58bb2;background:linear-gradient(145deg,#332b3d,#1c3434)}
+.office-card.selected{border-color:#b49ac2;box-shadow:inset 0 0 0 1px #b49ac255,0 8px 28px #8d6e9a16}
+.office-room,.office-enter{color:#c0a3cb}
+.meeting-room{background:linear-gradient(110deg,rgba(66,48,73,.92),rgba(30,56,53,.94));border-color:#75617b}
+.meeting-emblem{color:#d2b4dc;border-color:#9275a0;background:rgba(170,137,183,.12)}
+.field{border-color:#4d4557}.field:focus{border-color:#9b83ad;box-shadow:0 0 0 3px #9b83ad20}
+.library-hero{background:linear-gradient(115deg,#282438,#1d3434 60%,#3a2c2c)!important;border-color:#63566b!important}
+.library-search{border-color:#6a5c73;background:#211f29}
+.library-search>span{color:#bca0ca}
+.library-search button{background:#806b91;color:#fff}
+.library-categories button.active,.library-categories button:hover{background:#4a3b55!important;border-color:#947aa2!important;color:#f2e6f4!important}
+.meeting-dialog{background:linear-gradient(145deg,#252130,#172725);border-color:#796586}
+.meeting-choice{background:#292532;border-color:#54475f}
+@media(prefers-reduced-motion:no-preference){.tile,.office-card,.btn,.nav button{transition:background .25s ease,border-color .25s ease,transform .25s ease}.tile:hover{transform:translateY(-2px)}}
 </style></head>
 <body><div class="shell">
 <aside class="side"><div class="brand"><div class="sigil">N</div><div><b>NOX</b><small>PRIVATE LUXURY</small></div></div>
