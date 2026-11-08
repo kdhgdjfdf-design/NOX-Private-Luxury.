@@ -93,6 +93,27 @@ body{background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,syst
 @media(max-width:700px){.concierge-hero{background:#2b2b2b;border-color:#3c3c3c;gap:14px}.home-layout{margin-top:12px}.concierge-item{padding:14px 12px}.home-footer{font-size:10px}}
 @media(max-width:520px){.top{margin-bottom:18px}.concierge-hero h1{font-size:30px}.chat-head{flex-direction:row;align-items:center}.chat-head .chat-heading-copy{flex:1}.chat-head .quiet-action{font-size:10px}.bubble{max-width:94%}.daily-note p{font-size:12px}}
 
+
+.online-library{margin-top:18px;padding:20px}
+.online-library-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.online-library-head h3{margin:0 0 5px}.online-library-head p{margin:0}
+.discover-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 14px}
+.discover-tabs .btn{font-size:12px}
+.discover-pane[hidden]{display:none}
+.discover-search{display:flex;gap:9px;align-items:center;margin:12px 0}
+.discover-search .field{flex:1;min-width:0;margin:0}
+.discover-links{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.discover-links a{font-size:12px;color:#ddd;text-decoration:none;background:#333;border:1px solid #454545;border-radius:12px;padding:10px 12px}
+.discover-links a:hover{background:#3b3b3b}
+.discover-results{display:grid;gap:8px;margin-top:12px}
+.discover-result{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;border:1px solid #414141;background:#242424;border-radius:13px}
+.discover-result b,.podcast-picks b{display:block;font-size:13px;color:#eee}
+.discover-result small,.podcast-picks small{display:block;color:#aaa;font-size:11px;margin-top:4px}
+.discover-result .btn{white-space:nowrap;text-decoration:none}
+.podcast-picks{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:9px;margin-top:14px}
+.podcast-picks a{padding:13px;border:1px solid #414141;background:#242424;border-radius:13px;text-decoration:none}
+@media(max-width:520px){.online-library{padding:15px}.discover-search{align-items:stretch}.discover-result{align-items:flex-start;flex-direction:column}.discover-result .btn{align-self:flex-start}}
+
 </style></head>
 <body><div class="shell">
 <aside class="side"><div class="brand"><div class="sigil">N</div><div><b>NOX</b><small>PRIVATE LUXURY</small></div></div>
@@ -138,7 +159,43 @@ body{background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,syst
 <section class="view" id="council"><div class="section-head"><h2>مجلس المساعدين</h2><span>مساحة واحدة لكل محادثاتك</span></div><div class="chat-layout"><div class="chatbox"><div class="chat-head"><div class="assistant-picker-wrap"><select class="assistant-pill" id="assistantPicker" aria-label="اختر المساعد" onchange="switchAssistant(this.value)"><option value="concierge">المرافق الشخصي</option><option value="scholar">الباحث والمعلّم</option><option value="curator">أمين المكتبة</option><option value="analyst">المحلّل</option><option value="companion">المستشار النفسي</option></select></div><div class="chat-heading-copy"><b id="activeName">المرافق الشخصي</b><small id="activeRole">يرتب تفاصيل يومك وشؤونك اليومية</small></div><button class="quiet-action" onclick="newChat()">＋ محادثة جديدة</button></div><div class="chat-messages" id="messages"></div><div class="chat-compose"><button class="icon-btn" title="إملاء صوتي" onclick="voiceInput()">🎙</button><input class="field grow" id="chatInput" placeholder="اكتب ما تريد..." onkeydown="if(event.key==='Enter')sendChat()"><button class="btn primary" onclick="sendChat()">إرسال</button></div></div></div></section>
 <section class="view" id="log"><div class="section-head"><h2>السجل اليومي</h2><span>لحظاتك كما تريد تذكرها</span></div><div class="panel"><input id="logTitle" class="field" placeholder="عنوان اللحظة أو النشاط"><select id="logType" class="field"><option>دراسة</option><option>قراءة</option><option>بودكاست</option><option>مهارة</option><option>وقت شخصي</option><option>أخرى</option></select><textarea id="logText" class="field" placeholder="تفاصيل اختيارية"></textarea><button class="btn primary" onclick="addEntry('logs','logTitle','logText','logType')">حفظ في سجلي</button></div><div class="panel" id="logsList"></div></section>
 <section class="view" id="notes"><div class="section-head"><h2>الملاحظات</h2><span>مساحة لأفكارك</span></div><div class="panel"><input id="noteTitle" class="field" placeholder="عنوان الملاحظة"><textarea id="noteText" class="field" placeholder="اكتب ملاحظتك..."></textarea><button class="btn primary" onclick="addEntry('notes','noteTitle','noteText')">حفظ الملاحظة</button></div><div class="panel" id="notesList"></div></section>
-<section class="view" id="library"><div class="section-head"><h2>المكتبة</h2><span>كتبك بصيغة PDF</span></div><div class="panel"><h3>إضافة كتاب</h3><input id="bookTitle" class="field" placeholder="عنوان الكتاب"><input id="bookAuthor" class="field" placeholder="اسم المؤلف"><label class="muted" for="bookPdf">ملف الكتاب PDF</label><input id="bookPdf" class="field" type="file" accept="application/pdf,.pdf"><button class="btn primary" onclick="savePdfBook()">إضافة الكتاب إلى مكتبتي</button><p class="muted">تُحفظ ملفات الكتب على هذا الجهاز داخل المتصفح، ولا تُرفع إلى خادم.</p></div><div class="panel" id="booksList"></div><div class="panel pdf-reader" id="pdfReader" style="display:none"><div class="row" style="justify-content:space-between;align-items:center"><div><h3 id="readerTitle" style="margin:0 0 4px">قارئ الكتاب</h3><div class="muted" id="readerAuthor"></div></div><button class="btn" onclick="closePdfReader()">إغلاق</button></div><div class="pdf-toolbar"><button class="btn" id="prevPage" onclick="turnPage(-1)">السابق</button><span class="tag" id="pageStatus">صفحة 1</span><button class="btn" id="nextPage" onclick="turnPage(1)">التالي</button></div><div class="pdf-stage" dir="ltr"><canvas id="pdfCanvas"></canvas></div><div class="muted" style="text-align:center;margin-top:9px">اسحب الصفحة يمينًا أو يسارًا للتنقل · اضغط قرب الحافة للتقدم أو الرجوع</div></div></section>
+<section class="view" id="library"><div class="section-head"><h2>المكتبة</h2><span>كتبك بصيغة PDF</span></div><div class="panel"><h3>إضافة كتاب</h3><input id="bookTitle" class="field" placeholder="عنوان الكتاب"><input id="bookAuthor" class="field" placeholder="اسم المؤلف"><label class="muted" for="bookPdf">ملف الكتاب PDF</label><input id="bookPdf" class="field" type="file" accept="application/pdf,.pdf"><button class="btn primary" onclick="savePdfBook()">إضافة الكتاب إلى مكتبتي</button><p class="muted">تُحفظ ملفات الكتب على هذا الجهاز داخل المتصفح، ولا تُرفع إلى خادم.</p></div><div class="panel" id="booksList"></div>
+<div class="panel online-library">
+ <div class="online-library-head"><div><h3>اكتشف من الإنترنت</h3><p class="muted">كتب ومكتبات صوتية وبودكاست من مصادرها الأصلية</p></div><span class="tag">مصادر خارجية</span></div>
+ <div class="discover-tabs" role="tablist">
+  <button class="btn primary" id="discoverBooksTab" onclick="setDiscoverTab('books')">الكتب</button>
+  <button class="btn" id="discoverAudioTab" onclick="setDiscoverTab('audio')">كتب صوتية</button>
+  <button class="btn" id="discoverPodcastsTab" onclick="setDiscoverTab('podcasts')">البودكاست</button>
+ </div>
+ <div id="discoverBooks" class="discover-pane">
+  <p class="muted">ابحث في فهارس الكتب، ثم افتح صفحة المصدر لمعرفة خيارات القراءة والإتاحة.</p>
+  <div class="discover-search"><input class="field" id="onlineBookQuery" placeholder="عنوان كتاب أو اسم مؤلف"><button class="btn primary" onclick="searchOnlineBooks()">بحث</button></div>
+  <div class="discover-links"><a href="https://www.gutenberg.org/ebooks/" target="_blank" rel="noopener">Project Gutenberg · كتب مجانية من الملكية العامة</a><a href="https://standardebooks.org/" target="_blank" rel="noopener">Standard Ebooks · طبعات إلكترونية منقحة</a></div>
+  <div id="onlineBookResults" class="discover-results"><div class="empty">اكتب عنوانًا أو مؤلفًا لبدء البحث.</div></div>
+ </div>
+ <div id="discoverAudio" class="discover-pane" hidden>
+  <p class="muted">كتب صوتية مجانية مسجلة من متطوعين، مع إمكانية الاستماع من المصدر.</p>
+  <div class="discover-search"><input class="field" id="onlineAudioQuery" placeholder="ابحث عن كتاب صوتي أو مؤلف"><button class="btn primary" onclick="searchOnlineAudio()">بحث</button></div>
+  <div class="discover-links"><a href="https://librivox.org/" target="_blank" rel="noopener">مكتبة LibriVox الصوتية</a></div>
+  <div id="onlineAudioResults" class="discover-results"><div class="empty">اكتب عنوانًا أو اسم مؤلف للبحث في LibriVox.</div></div>
+ </div>
+ <div id="discoverPodcasts" class="discover-pane" hidden>
+  <p class="muted">اكتشف برامج جديدة حسب اهتماماتك. التشغيل والاشتراك يتمان من منصة الناشر.</p>
+  <div class="discover-search"><input class="field" id="onlinePodcastQuery" placeholder="ابحث عن بودكاست أو موضوع"><button class="btn primary" onclick="searchOnlinePodcasts()">بحث</button></div>
+  <div class="discover-links">
+   <a href="https://podcasts.apple.com/ma/genre/1304" target="_blank" rel="noopener">بودكاست التعليم</a>
+   <a href="https://podcasts.apple.com/us/multi-room/6447383822" target="_blank" rel="noopener">بودكاست باللغة العربية</a>
+   <a href="https://p0dcasters.com/language/ar" target="_blank" rel="noopener">فهرس البودكاست العربي وRSS</a>
+  </div>
+  <div class="podcast-picks">
+   <a href="https://podcasts.apple.com/us/podcast/el-daheeh-%D8%A7%D9%84%D8%AF%D8%AD%D9%8A%D8%AD/id1510491009" target="_blank" rel="noopener"><b>الدحيح</b><small>علوم ومعرفة · Apple Podcasts</small></a>
+   <a href="https://podcasts.apple.com/us/podcast/reading-the-world-%D9%82%D8%B1%D8%A7%D8%A1%D8%A9-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85-world-literature/id1862030822" target="_blank" rel="noopener"><b>قراءة العالم</b><small>أدب وثقافة وقراءة نقدية</small></a>
+   <a href="https://podcasts.apple.com/dz/podcast/qfi-podcast-all-things-arabic/id1707210403" target="_blank" rel="noopener"><b>All Things Arabic</b><small>اللغة العربية والتعليم</small></a>
+  </div>
+  <div id="onlinePodcastResults" class="discover-results"></div>
+ </div>
+</div>
+<div class="panel pdf-reader" id="pdfReader" style="display:none"><div class="row" style="justify-content:space-between;align-items:center"><div><h3 id="readerTitle" style="margin:0 0 4px">قارئ الكتاب</h3><div class="muted" id="readerAuthor"></div></div><button class="btn" onclick="closePdfReader()">إغلاق</button></div><div class="pdf-toolbar"><button class="btn" id="prevPage" onclick="turnPage(-1)">السابق</button><span class="tag" id="pageStatus">صفحة 1</span><button class="btn" id="nextPage" onclick="turnPage(1)">التالي</button></div><div class="pdf-stage" dir="ltr"><canvas id="pdfCanvas"></canvas></div><div class="muted" style="text-align:center;margin-top:9px">اسحب الصفحة يمينًا أو يسارًا للتنقل · اضغط قرب الحافة للتقدم أو الرجوع</div></div></section>
 <section class="view" id="settings"><div class="section-head"><h2>الإعدادات</h2><span>مساحتك، وفق اختياراتك</span></div><div class="panel"><div class="setting-row"><div><b>اسم المخاطبة</b><small>جميع المساعدين ينادونك سيدي</small></div><span class="tag">سيدي · ثابت</span></div><div class="setting-row"><div><b>المظهر</b><small>الأسود الفحمي والذهبي البرونزي</small></div><span class="tag">Night Gold</span></div><div class="setting-row"><div><b>اللغة</b><small>لغة الواجهة الأساسية</small></div><select class="field" style="width:120px;margin:0" id="language" onchange="saveSetting('language',this.value)"><option value="ar">العربية</option><option value="en">English</option><option value="fr">Français</option></select></div><div class="setting-row"><div><b>قراءة الردود صوتيًا</b><small>استخدم الصوت العربي المتاح على جهازك</small></div><input class="switch" type="checkbox" id="speak" onchange="saveSetting('speak',this.checked)"></div><div class="setting-row"><div><b>تجربة الصوت</b><small>يمكنك الاستماع أو إيقاف القراءة في أي وقت</small></div><div class="row"><button class="btn" onclick="testVoice()">استماع</button><button class="btn" onclick="stopVoice()">إيقاف</button></div></div><div class="setting-row"><div><b>إظهار لمحة الصفحة الرئيسية</b><small>مواعيدك وموضع القراءة المحفوظ</small></div><input class="switch" type="checkbox" id="showBrief" checked onchange="saveSetting('showBrief',this.checked)"></div><div class="setting-row"><div><b>تفضيلاتك الشخصية</b><small>تفاصيل تختار أن يتذكرها NOX</small></div><button class="btn" onclick="editProfile()">إدارة</button></div></div></section>
 <section class="view" id="privacy"><div class="section-head"><h2>الخصوصية والأمان</h2><span>أنت تتحكم ببياناتك</span></div><div class="panel"><p class="muted">هذه النسخة تحفظ السجل والملاحظات والمكتبة والمحادثات في التخزين المحلي للمتصفح. لا يوجد حساب أو مزامنة سحابية أو اتصال ذكاء اصطناعي في هذه النسخة. احفظ نسخة احتياطية قبل مسح بيانات المتصفح.</p><button class="btn primary" onclick="exportData()">تصدير نسخة احتياطية</button> <button class="btn" onclick="clearData()">مسح بيانات NOX</button></div></section>
 <section class="view" id="about"><div class="welcome"><div class="eyebrow">THE NOX PHILOSOPHY</div><h1>Luxury for yourself.</h1><p>الفخامة ليست استعراضًا. قد تكون مكتبًا مرتبًا، كتابًا مفتوحًا، أو مساءً هادئًا. NOX مساحة تساعدك على عيش تفاصيلك، لا على الهروب منها.</p></div></section>
@@ -188,6 +245,35 @@ function saveSetting(k,v){db.settings[k]=v;persist();toast('تم تحديث ال
 function editProfile(){const v=prompt('ما التفاصيل التي تريد أن يتذكرها NOX عنك؟',db.profile.memo||'');if(v===null)return;db.profile.memo=v;persist();toast('حُفظت تفضيلاتك')}
 function editHome(key){const labels={weather:'ما حالة الطقس أو الملاحظة الجوية التي تريد عرضها؟',plans:'اكتب مواعيدك وخططك القادمة (يمكنك كتابة أكثر من موعد).',outfit:'اكتب الملابس والعطر والتسريحة التي اخترتها.',activities:'ما الأنشطة أو الاهتمامات التي تريد تذكرها اليوم؟',speech:'ما أسلوب الكلام أو العبارات وآداب الحوار التي تريد حفظها؟',requests:'ما الموضوع أو الطلب الذي تريد من NOX حفظه لمعالجته لاحقًا؟',reading:'ما الكتاب الذي تقرؤه؟ وأين وصلت إليه؟',podcast:'ما البودكاست أو الحلقة التي تتابعها؟ وأين توقفت؟'};const value=prompt(labels[key],db.home[key]||'');if(value===null)return;db.home[key]=value.trim();persist();toast('تم تحديث مساحتك')}
 function renderHome(){const h=new Date().getHours();$('greeting').textContent=(h<12?'صباح الخير':h<18?'طاب مساؤك':'مساء الخير')+'.';$('todayDate').textContent=new Date().toLocaleDateString('ar-MA',{weekday:'long',day:'numeric',month:'long'});const fields={outfit:'outfitView',speech:'speechView',requests:'requestsView',reading:'readingView',podcast:'podcastView'};const empty={outfit:'لم تخطط لإطلالة بعد.',speech:'احفظ العبارات والأسلوب الذي تود اتباعه في لقاءاتك.',requests:'لا توجد مواضيع محفوظة بعد.',reading:'لا يوجد كتاب قيد القراءة.',podcast:'لا يوجد محتوى قيد الاستماع.'};Object.entries(fields).forEach(([k,id])=>{const el=$(id);if(el)el.textContent=db.home[k]||empty[k]});const parts=[];if(db.home.plans)parts.push(db.home.plans);if(db.home.outfit)parts.push('الإطلالة: '+db.home.outfit);if(db.home.speech)parts.push('أسلوب الحديث: '+db.home.speech);if(db.home.requests)parts.push('للمتابعة: '+db.home.requests);if(db.home.reading)parts.push('الكتاب: '+db.home.reading);if(db.home.podcast)parts.push('البودكاست: '+db.home.podcast);$('dailyMessage').textContent=parts.length?parts.join('\\n\\n'):'ستظهر هنا رسالة NOX اليومية عندما تحفظ خططك وتفاصيلك. لن يضيف التطبيق مواعيد أو اختيارات لم تحددها.';$('dailyMessage').classList.toggle('note-empty',!parts.length)}
+
+// Online discovery: search public catalogues, then open items at their publishers.
+function setDiscoverTab(tab){
+ const tabs=['books','audio','podcasts'];
+ tabs.forEach(k=>{const pane=$('discover'+k[0].toUpperCase()+k.slice(1)+'Tab');const box=$('discover'+k[0].toUpperCase()+k.slice(1));if(pane)pane.classList.toggle('primary',k===tab);if(box)box.hidden=k!==tab});
+}
+function searchOnlineBooks(){
+ const q=$('onlineBookQuery').value.trim();if(!q)return toast('اكتب عنوان كتاب أو اسم مؤلف');
+ const out=$('onlineBookResults');out.innerHTML='<div class="empty">جارٍ البحث في فهرس Open Library…</div>';
+ fetch('https://openlibrary.org/search.json?q='+encodeURIComponent(q)+'&limit=8&fields=key,title,author_name,first_publish_year')
+ .then(r=>{if(!r.ok)throw new Error('search failed');return r.json()})
+ .then(d=>{const items=(d.docs||[]).slice(0,8);if(!items.length){out.innerHTML='<div class="empty">لم نعثر على نتائج. جرّب كلمات أخرى.</div>';return}
+ out.innerHTML=items.map(x=>'<article class="discover-result"><div><b>'+esc(x.title||'عنوان غير متاح')+'</b><small>'+esc((x.author_name||['مؤلف غير محدد']).slice(0,2).join('،'))+(x.first_publish_year?' · '+x.first_publish_year:'')+'</small></div><a class="btn" target="_blank" rel="noopener" href="https://openlibrary.org'+encodeURI(x.key||'')+'">عرض الكتاب</a></article>').join('')})
+ .catch(()=>{out.innerHTML='<div class="empty">تعذر الاتصال بالفهرس الآن. يمكنك فتح البحث في Project Gutenberg مباشرة.</div><a class="btn" target="_blank" rel="noopener" href="https://www.gutenberg.org/ebooks/search/?query='+encodeURIComponent(q)+'">البحث في Project Gutenberg</a>'});
+}
+function searchOnlineAudio(){
+ const q=$('onlineAudioQuery').value.trim();if(!q)return toast('اكتب عنوان كتاب صوتي أو اسم مؤلف');
+ const out=$('onlineAudioResults');out.innerHTML='<div class="empty">جارٍ البحث في LibriVox…</div>';
+ fetch('https://librivox.org/api/feed/audiobooks/?format=json&extended=1&limit=12&title='+encodeURIComponent(q))
+ .then(r=>{if(!r.ok)throw new Error('search failed');return r.json()})
+ .then(d=>{const items=d.books||d||[];if(!items.length){out.innerHTML='<div class="empty">لم نعثر على نتائج بهذا العنوان. جرّب كلمة أقصر.</div>';return}
+ out.innerHTML=items.slice(0,10).map(x=>'<article class="discover-result"><div><b>'+esc(x.title||'كتاب صوتي')+'</b><small>'+esc((x.authors||[]).map(a=>a.first_name+' '+a.last_name).join('،')||x.language||'LibriVox')+' · '+esc(x.totaltime||'')+'</small></div><a class="btn" target="_blank" rel="noopener" href="'+esc(x.url_librivox||x.url_rss||'https://librivox.org/')+'">استمع من المصدر</a></article>').join('')})
+ .catch(()=>{out.innerHTML='<div class="empty">تعذر الاتصال بـ LibriVox الآن. افتح الفهرس وابحث هناك.</div><a class="btn" target="_blank" rel="noopener" href="https://librivox.org/search/?q='+encodeURIComponent(q)+'">فتح بحث LibriVox</a>'});
+}
+function searchOnlinePodcasts(){
+ const q=$('onlinePodcastQuery').value.trim();if(!q)return toast('اكتب اسم بودكاست أو موضوعًا');
+ const out=$('onlinePodcastResults');out.innerHTML='<div class="discover-result"><div><b>نتائج البحث عن: '+esc(q)+'</b><small>افتح البحث في منصة البودكاست لاختيار البرنامج والحلقات.</small></div><a class="btn" target="_blank" rel="noopener" href="https://podcasts.apple.com/search?term='+encodeURIComponent(q)+'">عرض النتائج</a></div>';
+}
+
 function renderBooks(){const el=$('booksList');if(!db.books.length){el.innerHTML='<div class="empty">مكتبتك فارغة حاليًا. أضف أول كتاب PDF من الأعلى.</div>';return}el.innerHTML=db.books.map(b=>'<div class="book-card"><div class="book-meta"><b>'+esc(b.title)+'</b><small>'+esc(b.author||'المؤلف غير محدد')+' · PDF</small></div><div class="book-actions"><button class="btn primary" onclick="openPdfBook('+b.id+')">قراءة الكتاب</button><button class="btn" onclick="deletePdfBook('+b.id+')">حذف</button></div></div>').join('')}
 function openPdfDb(){return new Promise((resolve,reject)=>{const req=indexedDB.open('nox-private-pdf-library',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('pdfs'))req.result.createObjectStore('pdfs',{keyPath:'id'})};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
 async function storePdf(id,buffer){const dbx=await openPdfDb();return new Promise((resolve,reject)=>{const tx=dbx.transaction('pdfs','readwrite');tx.objectStore('pdfs').put({id,buffer});tx.oncomplete=()=>{dbx.close();resolve()};tx.onerror=()=>{dbx.close();reject(tx.error)}})}
